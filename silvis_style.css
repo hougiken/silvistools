@@ -1,0 +1,74 @@
+/* silvis_style.css for use in NCAS Chapter Info */
+
+/* SILVISの色などの定義 */
+.chapterinfo {
+    --silvis-light-green: rgb(140,255,101);
+    --silvis-green: green;
+    --silvis-gradient: linear-gradient(var(--silvis-light-green),var(--silvis-green))
+}
+
+.silvis_title {
+    display:block;
+    background-color:rgb(140,255,101);
+    background-image:var(--silvis-gradient);
+    border-radius:30% .1em;
+    width:100%;
+    color:rgba(255,255,255,0.96);
+    font-family:serif;
+    font-size:xx-large;
+    font-weight:bold;
+    text-align:center;
+    text-shadow: 0 0 15px var(--silvis-light-green);
+    padding:0 15px;letter-spacing:0.3em;
+}
+
+.silvis_h1 {
+    display:block;
+    border-bottom:green thin solid;
+    font-size:larger;
+    font-weight:bold;
+}
+
+.silvis_h1 rt {
+    color:#333;font-weight:normal;
+}
+
+/* 文字が何重にも重なるように見えるやつ。 */
+.silvis_blur {
+    filter:
+        drop-shadow(.3em -.2em rgba(0,255,0,.5))
+        drop-shadow(-0.3em -.2em rgba(0,255,0, 0.5))
+        drop-shadow(0 -0.2em rgba(0,255,0,0.5))
+    ;
+    font-size:larger;
+    font-weight:bold;
+}
+
+.silvis_allgreen {
+    display:inline-block;
+    padding:0 .5em;
+    color:white;
+    background-color:rgb(140,255,101)
+    background-image:var(--silvis-gradient);
+    border-radius:1em;
+    font-weight:bold;
+}
+
+/* BNIゲームで、SILVIS6期は「ビンゴ」による特別加点を設けており、その説明を.chapterinfoに書いていた。その装飾用 */
+.bingo{
+    border-collapse:collapse;
+    vertical-align:middle;
+}
+.bing tr{
+    height:calc((100% - 4px) / 3 );
+}
+.bingo td{
+    border:solid var(--silvis-green) 2px;
+    text-align:center;
+    vertical-align:middle;
+    width:33.3%;
+}
+
+.bgslg{
+    background-color:var(--silvis-light-green);
+}
