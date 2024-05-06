@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+	<link rel="stylesheet" href="https://ne001.ncas.jp/css/iconfont/material-icons.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+			<link rel="stylesheet" href="https://ne001.ncas.jp/css/csscomp.php">
+		<link rel="stylesheet" href="https://ne001.ncas.jp/css/projectcss.php?project=bni">	
+			<meta name="viewport" content="user-scalable=1">
+	<meta charset="utf-8">
+	<meta http-equiv="content-language" content="ja"> 
+	<link rel="icon" href="https://ne001.ncas.jp/images/ncas_favicon.ico" type="image/x-icon">
+	
+	<!-- ドロップダウンに検索機能を付ける -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+
+	
+			<title>メニュー</title>
+	
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+<script src="https://ne001.ncas.jp/js/datepicker-ja.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+
+<!-- ドロップダウンに検索機能を付ける -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/i18n/ja.js"></script>
+
+<!-- 雪を降らす -->
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1071153278"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1071153278');
+</script>
+
+
+
+
+	
+</head>
+
+
+	<body>
+
+
+
+		<header>
+
+     
+		
+
+	
+	<div class="logoarea">
+		
+					<div style="height:47px;display: inline-block;margin-left:10px;margin-top: 7px;">
+			<p style="font-size:27px;line-height: 10px;">NCAS</p><p style="font-size:12px;line-height:28px;">N.E. Chapter Administration System</p>
+			</div>
+				<span class="login_user_name">笠間　哲史</span>
+	</div>
+
+	
+	<div class="topmenubar_bg">
+		<div class="topmenubar">
+
+						<a href="https://ne001.ncas.jp/bni/bni.php" class="topmenu_left" title="トップページ"><img src="https://ne001.ncas.jp/images/top.png"></a>
+						
+			<div id="login_user_area">
+				ログイン：<span id="login_user_count"></span>人&nbsp;<span id="just_login_name"></span>
+				<div id="login_list"></div>
+			</div>
+
+			
+					<a href="https://ne001.ncas.jp/userlogout/user_logout.php" class="topmenu_right" title="ログアウト"><img src="https://ne001.ncas.jp/images/logout.png"></a>
+				
+		
+					<a href="https://ne001.ncas.jp/userlist/user.php" class="topmenu_right" title="ユーザー管理"><img src="https://ne001.ncas.jp/images/password.png"></a>
+				
+		
+		
+		</div>
+		
+
+		
+    </div>
+		
+	<div class="flexlayout-default">
+					<div style="width:100%;">
+								<div class="category_count">Aカテゴリ数：35</div>
+				
+									<div class="topmemberlink set_my_meibo" style="margin-right:40px;float:right;" data-id="35">Myプロフィール</div>
+								<div class="dialog-link new_podcast" style="float:right;" data-url="https://ne001.ncas.jp/bni_podcast/bni_podcast.php" data-cmd="list">Podcast 1.8倍速</div>
+			</div>
+			</div>
+		
+	
+		
+</header>		<article>
+			<div class="flexlayout-default">
+				<div class="cell-xl" style="padding-top:0px;">
+
+					<div class="area_button" data-number="0" id="bni-button-0"><img src="images/bni-menu-5.png"><span>情報</span></div>
+					<div class="area_button" data-number="1" id="bni-button-1"><img src="images/bni-menu-6.png"><span>予定</span>
+						<div class="count_circle_menu" id="menu_count_event_minyuryoku">10</div>
+					</div>
+					<div class="area_button" data-number="6" id="bni-button-6"><img src="images/bni-menu-9.png"><span>トレーニング</span>
+						<div class="count_circle_menu" id="count_facilitator"></div>
+						<div id="per_facilitator"></div>
+					</div>
+					<div class="area_button" data-number="5" id="bni-button-5"><img src="images/bni-menu-1.png"><span>メンバー</span></div>
+					<div class="area_button" data-number="7" id="bni-button-7"><img src="images/bni-menu-10.png"><span>ビジター</span>
+						<div class="count_circle_menu" id="menu_visitor_count"></div>
+					</div>
+
+					<div class="area_button" data-number="10" id="bni-button-10"><img src="images/bni-menu-13.png"><span>BNIゲーム</span>
+
+						<div id="bni_game_nokori"></div>
+					</div>
+
+					<div class="area_button" data-number="8" id="bni-button-8"><img src="images/bni-menu-11.png"><span>File・動画</span>
+						<div class="count_circle_menu" id="count_movie"></div>
+					</div>
+					<div class="area_button" data-number="2" id="bni-button-2"><img src="images/bni-menu-7.png"><span>運営</span>
+						<div class="count_circle_menu" id="menu_unei_count"></div>
+						<div class="heart heart_menu" id="count_arigato">
+							<div class="heart_text">0</div>
+						</div>
+					</div>
+					<div class="area_button" data-number="3" id="bni-button-3"><img src="images/bni-menu-3.png"><span>ショップ<br /><span class="menu_shop_count">1,561,439円</span></span>
+
+						<div class="count_circle_menu" id="menu_shop_count_jyuchu"></div>
+					</div>
+					<div class="area_button" data-number="9" id="bni-button-9"><img src="images/bni-menu-12.png"><span>リンク</span></div>
+					<div class="area_button" data-number="11" id="bni-button-11"><img src="images/bni-menu-14.png"><span>パワーチーム</span></div>
+
+					<div class="area_button" data-number="4" id="bni-button-4"><img src="images/bni-menu-4.png"><span>管理</span>
+											</div>
+					
+
+					<div style="clear:both;"></div>
+
+					<div class="area_0 area">
+
+												
+						
+
+						<h5>チャプター情報　<p class="dialog-link textlink" data-url="bni.php" data-cmd="chapterinfo_edit">チャプター情報を更新する</p></h5>
+
+<!--ここからチャプターインフォ-->
+						<div class="chapterinfo">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hougiken/silvistools@master/silvis_style.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hougiken/silvistools@master/silvis_carousel4ncas.js"></script>
+
+<div id="carousel1" class="silvis_carousel" >
+	<div style="font-size: 30px;">BOD 7/3,17 まで<br/>あと<script type="text/javascript">document.write( Math.ceil(((new Date(2024,6,3))-(new Date()))/(24*60*60*1000)));</script>日</div>
+	<div>対面イベント 5/17(金)</div>
+	<div>リージョンフォーラム 5/8</div>
+	<div id="car_video" url="https://bnionline.zoom.us/rec/share/f9NEC-tEpo_iX2WEGItB0q1GP4KIXFdarT1tvjscSB9QHRUFo0K1ufSmOaFY-fM6.s7Jbuk4uabK-TnRS" pass="$3T.4y1U">最新定例会動画 ▶︎</div>
+</div>
+<span class="silvis_title">Challenge 120%</span><br />
+<br />
+<span class="silvis_h1">■<ruby>Current Themes<rp>(</rp><rt>こんき の もくひょう</rt><rp>)</rp></ruby></span><br />
+①全員の７期夢・目標の実現<br />
+②Newメンバー数 １０名(純増)<br />
+<br />
+<a href="https://docs.google.com/spreadsheets/d/1s20D_NntX0j2suEXeWiQ_lStMmZ5nodl_gC_aBuDg_c/edit#gid=481678676" target="_blank">https://docs.google.com/spreadsheets/d/1s20D_NntX0j2suEXeWiQ_lStMmZ5nodl_gC_aBuDg_c/edit#gid=481678676</a><br />
+<br />
+<span class="silvis_h1">■<ruby>Schedules of SILVIS<rp>(</rp><rt>きまりごと</rt><rp>)</rp></ruby></span><br />
+・定例会：毎週水曜日 朝7時30分～（7:00～朝礼、06:59までにZoom入室・リネーム・挨拶）<br />
+<br />
+<span class="silvis_h1">■<ruby>毎週ルーチン作業のリンク一覧</ruby></span><br />
+①<a href="https://www.bniconnectglobal.com" target="_blank">Connectへのリファーラル・CEU・1to1登録</a><br />
+②NCASビジター登録⇒「ビジター」<br />
+③SILVISアドベンチャーポイント登録⇒BNIゲーム<br />
+④<a href="https://www.bniconnectglobal.com/web/secure/home" target="_blank">リファーラル提供レポート</a>：先週分を出力して、「yyyymmdd山田太郎.xslx」で保存して（保存形式=Excelブック形式）、<a href="https://forms.gle/CCoSaB6CJupnHBz9A">GoogleFormsからバイスに送信</a><br />
+<div style="text-align:right">上記①～④項目期限：毎週月曜「18：00」！（間に合わない場合、事前にバイス報告必須）</div><br />
+<br />
+<span class="silvis_h1">■<ruby>都度作業のリンク一覧</ruby></span><br />
+・Weeklyプレゼンのスライド変更要請⇒「運営」＞「WEBマスター ＞ スライド変更依頼」：月曜23：59まで<br />
+・トレーニングスケジュールの<a href="https://crayondatabase.com/bni/bni.php" target="_top">確認（NEリージョン）</a><br />
+・トレーニングスケジュールの<a href="https://bni.jp/ja/events" target="_blank">確認（全国）</a><br />
+・<a href="https://www.bniconnectglobal.com/web/secure/operationsChapterMeetingReportPalms?countryId=7638®ionId=11904&chapterId=34602" target="_blank">PLMSレポート（週次の数字確認）</a><br />
+・チャプタートラフィックライトレポートは<a href="http://bni-tne.com/ja/MemberPage" target="_blank">こちらから</a>確認<br />
+・「推薦の言葉」を報告する→「運営」＞「イベント」：月曜18：00まで<br />
+・【会費の振込み先】<br />
+武蔵野銀行　東松山支店（011）普通口座 1135745<br />
+名義　チバ　カツコ<br />
+5,000円（振込み手数料はご負担下さい）<br />
+振込ステータス、Peatixリンクは以下スプシからリンク<br />
+<a href="https://docs.google.com/spreadsheets/d/13aSzafbzMxl9GTqTGdnIHr6gAvqJNCd2Us1ZfmNIEPs/edit?usp=sharing" target="_blank">https://docs.google.com/spreadsheets/d/13aSzafbzMxl9GTqTGdnIHr6gAvqJNCd2Us1ZfmNIEPs/edit?usp=sharing</a><br />
+<br />
+<br />
+<span class="silvis_h1">■ BOD ( Business Open Day )</span><br />
+7月3日、7月17日<br />
+（5/29：<ruby>モメンタム<rt>momentum</rt></ruby>：BODについて学ぶ日）<br />
+※BODとは？：ビジターさんをたくさん呼んで、いつもと違うプログラムで進行する日。<br />
+<br />
+<span class="silvis_h1">■<ruby>How to use FOCUS<rp>(</rp><rt>フォーカスのつかいかた</rt><rp>)</rp></ruby></span><br />
+・定例会<sub>等</sub>のZoomを開く→「予定」<br />
+・FOCUSショップでリファーラルを出す→<a href="https://crayondatabase.com/bni_shop_cart/mall.php">FOCUSネットショップモール</a>へGo!<br />
+<br />
+<span class="silvis_h1">■<ruby>今期(7期)LT+ST<rp>(</rp><rt>Leadership Team and Support Team</rt><rp>)</rp></ruby>(4/1〜)</span><br />
+【LT】<br />
+プレジデント：出原 啓太<br />
+バイスプレジデント：一柳 雄太<br />
+書記兼会計：千葉 賀津子<br />
+【Membership Team】<br />
+審査担当：染谷 泰英<br />
+評価担当：森崎 正行<br />
+規定運用担当：辻村 康<br />
+チャプターディベロップメント：佐野 慎祐<br />
+【ST】<br />
+ビジターホストコーディネーター：山口 幸夫<br />
+メンターコーディネーター：田中 一成<br />
+エデュケーションコーディネーター：そめ ゆみ<br />
+BODコーディネーター：吉田 健一郎<br />
+イベント担当：有岡 秀郎<br />
+イベント担当(トレーニング)：松下 公子<br />
+イベント担当(1to1)：関口 恵太<br />
+イベント担当(対面)：三輪 智士<br />
+Webマスター：岩野 孝信<br />
+グローバルビジネスコーディネーター：小林 啓一郎<br />
+オンライン・コミュニケーション・コーディネーター：西山 遥翔<br />
+BCP委<br />
+
+													</div>
+
+												
+						<p class="dialog-link textlink" data-url="bni.php" data-cmd="oshirase_append" style="display:block;float:right;">お知らせを追加</p>
+						<div style="clear:both;"></div>
+						
+						<div style="clear:both;"></div>
+
+
+						
+
+						<div id="malllink"><a href="/bni_shop_cart/mall.php" target="_blank"><img src="images/ncas_mall_link.jpg"></a></div>
+
+						<div class="inview"></div>
+
+																																				
+						
+						
+
+						<div class="bni_chart_area">
+							<h5>参加者統計<span class="soshikikaikaku" data-f="visitor_chart"></span></h5>
+							チャプター：<select name="chart_chapter" id="chart_chapter" style="width:200px;">
+<option value="dragonfly" id="chart_chapter-0">dragonfly</option>
+<option value="thundervolt" id="chart_chapter-1">thundervolt</option>
+<option value="trinity" id="chart_chapter-2">trinity</option>
+<option value="kernel" id="chart_chapter-3">kernel</option>
+<option value="regina" id="chart_chapter-4">regina</option>
+<option value="bridget" id="chart_chapter-5">bridget</option>
+<option value="tress" id="chart_chapter-6">tress</option>
+<option value="vortex" id="chart_chapter-7">vortex</option>
+<option value="diana" id="chart_chapter-8">diana</option>
+<option value="lapis" id="chart_chapter-9">lapis</option>
+<option value="confioir" id="chart_chapter-10">confioir</option>
+<option value="goldvalley" id="chart_chapter-11">goldvalley</option>
+<option value="etoile" id="chart_chapter-12">etoile</option>
+<option value="abundance" id="chart_chapter-13">abundance</option>
+<option value="passione" id="chart_chapter-14">passione</option>
+<option value="tifonet" id="chart_chapter-15">tifonet</option>
+<option value="millennio" id="chart_chapter-16">millennio</option>
+<option value="eagle" id="chart_chapter-17">eagle</option>
+<option value="bonheur" id="chart_chapter-18">bonheur</option>
+<option value="improve" id="chart_chapter-19">improve</option>
+<option value="v.i.p." id="chart_chapter-20">v.i.p.</option>
+<option value="dna" id="chart_chapter-21">dna</option>
+<option value="clarice" id="chart_chapter-22">clarice</option>
+<option value="lega" id="chart_chapter-23">lega</option>
+<option value="zeus" id="chart_chapter-24">zeus</option>
+<option value="violet" id="chart_chapter-25">violet</option>
+<option value="ne" id="chart_chapter-26">ne</option>
+<option value="odin" id="chart_chapter-27">odin</option>
+<option value="glowing" id="chart_chapter-28">glowing</option>
+<option value="aries" id="chart_chapter-29">aries</option>
+<option value="rydeen" id="chart_chapter-30">rydeen</option>
+<option value="iris" id="chart_chapter-31">iris</option>
+<option value="rize" id="chart_chapter-32">rize</option>
+<option value="ideal" id="chart_chapter-33">ideal</option>
+<option value="journey" id="chart_chapter-34">journey</option>
+<option value="miracrea" id="chart_chapter-35">miracrea</option>
+<option value="dorado" id="chart_chapter-36">dorado</option>
+<option value="" selected="selected" id="chart_chapter-37">silvis</option>
+</select>
+
+							<canvas id="chart_suii"></canvas>
+						</div>
+
+						<div class="bni_chart_area">
+							<h5>招待ランキング（次回）<span class="soshikikaikaku" data-f="visitor_ranking"></span></h5>
+							<div id="visitor_ranking"></div>
+						</div>
+
+						<div style="clear:both;"></div>
+
+						<div class="bni_chart_area">
+
+							<h5>ネットショップ・直近販売</h5>
+							チャプター：<select name="chapter_newlist" id="chapter_newlist" style="width:200px;">
+<option value="dragonfly" id="chapter_newlist-0">dragonfly</option>
+<option value="thundervolt" id="chapter_newlist-1">thundervolt</option>
+<option value="trinity" id="chapter_newlist-2">trinity</option>
+<option value="kernel" id="chapter_newlist-3">kernel</option>
+<option value="regina" id="chapter_newlist-4">regina</option>
+<option value="bridget" id="chapter_newlist-5">bridget</option>
+<option value="tress" id="chapter_newlist-6">tress</option>
+<option value="vortex" id="chapter_newlist-7">vortex</option>
+<option value="diana" id="chapter_newlist-8">diana</option>
+<option value="lapis" id="chapter_newlist-9">lapis</option>
+<option value="confioir" id="chapter_newlist-10">confioir</option>
+<option value="goldvalley" id="chapter_newlist-11">goldvalley</option>
+<option value="etoile" id="chapter_newlist-12">etoile</option>
+<option value="abundance" id="chapter_newlist-13">abundance</option>
+<option value="passione" id="chapter_newlist-14">passione</option>
+<option value="tifonet" id="chapter_newlist-15">tifonet</option>
+<option value="millennio" id="chapter_newlist-16">millennio</option>
+<option value="eagle" id="chapter_newlist-17">eagle</option>
+<option value="bonheur" id="chapter_newlist-18">bonheur</option>
+<option value="improve" id="chapter_newlist-19">improve</option>
+<option value="v.i.p." id="chapter_newlist-20">v.i.p.</option>
+<option value="dna" id="chapter_newlist-21">dna</option>
+<option value="clarice" id="chapter_newlist-22">clarice</option>
+<option value="lega" id="chapter_newlist-23">lega</option>
+<option value="zeus" id="chapter_newlist-24">zeus</option>
+<option value="violet" id="chapter_newlist-25">violet</option>
+<option value="ne" id="chapter_newlist-26">ne</option>
+<option value="odin" id="chapter_newlist-27">odin</option>
+<option value="glowing" id="chapter_newlist-28">glowing</option>
+<option value="aries" id="chapter_newlist-29">aries</option>
+<option value="rydeen" id="chapter_newlist-30">rydeen</option>
+<option value="iris" id="chapter_newlist-31">iris</option>
+<option value="rize" id="chapter_newlist-32">rize</option>
+<option value="ideal" id="chapter_newlist-33">ideal</option>
+<option value="journey" id="chapter_newlist-34">journey</option>
+<option value="miracrea" id="chapter_newlist-35">miracrea</option>
+<option value="dorado" id="chapter_newlist-36">dorado</option>
+<option value="" selected="selected" id="chapter_newlist-37">silvis</option>
+</select>
+
+							<div id="shop_ranking_newlist"></div>
+						</div>
+
+						<div class="bni_chart_area">
+							<h5>ネットショップ・売上ランキング</h5>
+							チャプター：<select name="chapter_newlist" id="chapter_uriage" style="width:200px;">
+<option value="dragonfly" id="chapter_uriage-0">dragonfly</option>
+<option value="thundervolt" id="chapter_uriage-1">thundervolt</option>
+<option value="trinity" id="chapter_uriage-2">trinity</option>
+<option value="kernel" id="chapter_uriage-3">kernel</option>
+<option value="regina" id="chapter_uriage-4">regina</option>
+<option value="bridget" id="chapter_uriage-5">bridget</option>
+<option value="tress" id="chapter_uriage-6">tress</option>
+<option value="vortex" id="chapter_uriage-7">vortex</option>
+<option value="diana" id="chapter_uriage-8">diana</option>
+<option value="lapis" id="chapter_uriage-9">lapis</option>
+<option value="confioir" id="chapter_uriage-10">confioir</option>
+<option value="goldvalley" id="chapter_uriage-11">goldvalley</option>
+<option value="etoile" id="chapter_uriage-12">etoile</option>
+<option value="abundance" id="chapter_uriage-13">abundance</option>
+<option value="passione" id="chapter_uriage-14">passione</option>
+<option value="tifonet" id="chapter_uriage-15">tifonet</option>
+<option value="millennio" id="chapter_uriage-16">millennio</option>
+<option value="eagle" id="chapter_uriage-17">eagle</option>
+<option value="bonheur" id="chapter_uriage-18">bonheur</option>
+<option value="improve" id="chapter_uriage-19">improve</option>
+<option value="v.i.p." id="chapter_uriage-20">v.i.p.</option>
+<option value="dna" id="chapter_uriage-21">dna</option>
+<option value="clarice" id="chapter_uriage-22">clarice</option>
+<option value="lega" id="chapter_uriage-23">lega</option>
+<option value="zeus" id="chapter_uriage-24">zeus</option>
+<option value="violet" id="chapter_uriage-25">violet</option>
+<option value="ne" id="chapter_uriage-26">ne</option>
+<option value="odin" id="chapter_uriage-27">odin</option>
+<option value="glowing" id="chapter_uriage-28">glowing</option>
+<option value="aries" id="chapter_uriage-29">aries</option>
+<option value="rydeen" id="chapter_uriage-30">rydeen</option>
+<option value="iris" id="chapter_uriage-31">iris</option>
+<option value="rize" id="chapter_uriage-32">rize</option>
+<option value="ideal" id="chapter_uriage-33">ideal</option>
+<option value="journey" id="chapter_uriage-34">journey</option>
+<option value="miracrea" id="chapter_uriage-35">miracrea</option>
+<option value="dorado" id="chapter_uriage-36">dorado</option>
+<option value="" selected="selected" id="chapter_uriage-37">silvis</option>
+</select>
+
+							<div id="shop_ranking_uriage"></div>
+						</div>
+
+
+						<div style="clear:both;"></div>
+
+						<div class="bni_chart_area">
+							<h5>ファシリテーター申請グラフ（作成中も含む）</h5>
+							チャプター：<select name="facili_chapter" id="facili_chapter" style="width:200px;">
+<option value="dragonfly" id="facili_chapter-0">dragonfly</option>
+<option value="thundervolt" id="facili_chapter-1">thundervolt</option>
+<option value="trinity" id="facili_chapter-2">trinity</option>
+<option value="kernel" id="facili_chapter-3">kernel</option>
+<option value="regina" id="facili_chapter-4">regina</option>
+<option value="bridget" id="facili_chapter-5">bridget</option>
+<option value="tress" id="facili_chapter-6">tress</option>
+<option value="vortex" id="facili_chapter-7">vortex</option>
+<option value="diana" id="facili_chapter-8">diana</option>
+<option value="lapis" id="facili_chapter-9">lapis</option>
+<option value="confioir" id="facili_chapter-10">confioir</option>
+<option value="goldvalley" id="facili_chapter-11">goldvalley</option>
+<option value="etoile" id="facili_chapter-12">etoile</option>
+<option value="abundance" id="facili_chapter-13">abundance</option>
+<option value="passione" id="facili_chapter-14">passione</option>
+<option value="tifonet" id="facili_chapter-15">tifonet</option>
+<option value="millennio" id="facili_chapter-16">millennio</option>
+<option value="eagle" id="facili_chapter-17">eagle</option>
+<option value="bonheur" id="facili_chapter-18">bonheur</option>
+<option value="improve" id="facili_chapter-19">improve</option>
+<option value="v.i.p." id="facili_chapter-20">v.i.p.</option>
+<option value="dna" id="facili_chapter-21">dna</option>
+<option value="clarice" id="facili_chapter-22">clarice</option>
+<option value="lega" id="facili_chapter-23">lega</option>
+<option value="zeus" id="facili_chapter-24">zeus</option>
+<option value="violet" id="facili_chapter-25">violet</option>
+<option value="ne" id="facili_chapter-26">ne</option>
+<option value="odin" id="facili_chapter-27">odin</option>
+<option value="glowing" id="facili_chapter-28">glowing</option>
+<option value="aries" id="facili_chapter-29">aries</option>
+<option value="rydeen" id="facili_chapter-30">rydeen</option>
+<option value="iris" id="facili_chapter-31">iris</option>
+<option value="rize" id="facili_chapter-32">rize</option>
+<option value="ideal" id="facili_chapter-33">ideal</option>
+<option value="journey" id="facili_chapter-34">journey</option>
+<option value="miracrea" id="facili_chapter-35">miracrea</option>
+<option value="dorado" id="facili_chapter-36">dorado</option>
+<option value="" selected="selected" id="facili_chapter-37">silvis</option>
+</select>
+
+							<canvas id="facilitator_chart"></canvas>
+						</div>
+
+						<div class="bni_chart_area">
+							<h5>ファシリテーター申請者 0名</h5>
+							<p>直近５名　※作成中も含む　<span class="download-link textlink" data-url="bni.php" data-cmd="facilitator_csv" data-filename="ファシリテーター申請リスト.csv">CSVダウンロード</span></p>
+							<table>
+															</table>
+						</div>
+
+						<div style="clear:both;"></div>
+						<div class="bni_chart_area">
+							<h5>ログインカウント（１ヶ月）</h5>
+							<canvas id="login_count"></canvas>
+						</div>
+
+						<div class="bni_chart_area">
+							<h5>ログインカウント（月次）</h5>
+							<canvas id="login_count_monthly"></canvas>
+						</div>
+
+						<div class="bni_chart_area">
+							<h5>ディスク使用量</h5>
+							<div style="width:70%;margin:10px auto;">
+								<canvas id="chart_hd"></canvas>
+							</div>
+						</div>
+
+					</div>
+
+
+
+					<div class="area_1 area" style="padding-left: 10px;padding-right:10px;">
+
+
+						<h5 style="margin-top:30px;margin-bottom:20px;">今後のミーティング</h5>
+						<h6>リネーム：<input type="text" name="rename" value="笠間 哲史／弁護士（IT、医療）" style="width:300px;"></h6>
+						<div style="margin-bottom:10px;">&nbsp;</div>
+
+													<div class="next_meeting">
+																	<h6>第114回</h6>
+																<h6 id="next_place">2024/05/08</h6>
+																<p>7:15〜9：00</p>
+								<p><a class="zoomlink" href="https://bnionline.zoom.us/j/9458901558?pwd=VXBzcEtwcGRBWFZyeS9NS2dIRTJJdz09" target="_blank">ZOOM</a><br />
+
+<br />
+ミーティングID: 945 890 1558<br />
+パスコード: 0915<br />
+</p>
+								<p><br />
+</p>
+								<p class="visitor_count">8</p>
+								<p class="guest_count">0</p>
+																	<div class="bni_place_chart_area">
+										<p>【確度】</p>
+										<canvas id="chart140"></canvas>
+									</div>
+									<div class="bni_place_chart_area">
+										<p>【進捗】</p>
+										<canvas id="chart_tanto140"></canvas>
+									</div>
+								
+								<div class="place_id_list" data-place_id="140"></div>
+								
+								<button class="download-link" data-url="https://ne001.ncas.jp/bni_memberbook/bni_memberbook.php" data-cmd="booklet" data-filename="member.pdf">メンバー冊子</button> <span class="ajax-link" data-url="https://ne001.ncas.jp/bni_memberbook/bni_memberbook.php" data-cmd="edit" style="text-decoration: underline;cursor: pointer;color:blue;">自分の情報を編集</span>
+
+								<button class="dialog-link" data-url="visitor.php" data-cmd="print_visitor_select" data-hiduke="2024/05/08">アジェンダの印刷</button>
+								<button class="dialog-link" data-url="visitor.php" data-cmd="question_url" data-hiduke="2024/05/08">アンケートURL</button>
+
+							</div>
+
+													<div class="next_meeting">
+																	<h6>第115回</h6>
+																<h6 id="next_place">2024/05/15</h6>
+																<p>7:15〜9：00</p>
+								<p><a class="zoomlink" href="https://bnionline.zoom.us/j/9458901558?pwd=VXBzcEtwcGRBWFZyeS9NS2dIRTJJdz09" target="_blank">ZOOM</a><br />
+
+<br />
+ミーティングID: 945 890 1558<br />
+パスコード: 0915<br />
+</p>
+								<p><br />
+</p>
+								<p class="visitor_count">4</p>
+								<p class="guest_count">0</p>
+																	<div class="bni_place_chart_area">
+										<p>【確度】</p>
+										<canvas id="chart141"></canvas>
+									</div>
+									<div class="bni_place_chart_area">
+										<p>【進捗】</p>
+										<canvas id="chart_tanto141"></canvas>
+									</div>
+								
+								<div class="place_id_list" data-place_id="141"></div>
+								
+								<button class="download-link" data-url="https://ne001.ncas.jp/bni_memberbook/bni_memberbook.php" data-cmd="booklet" data-filename="member.pdf">メンバー冊子</button> <span class="ajax-link" data-url="https://ne001.ncas.jp/bni_memberbook/bni_memberbook.php" data-cmd="edit" style="text-decoration: underline;cursor: pointer;color:blue;">自分の情報を編集</span>
+
+								<button class="dialog-link" data-url="visitor.php" data-cmd="print_visitor_select" data-hiduke="2024/05/15">アジェンダの印刷</button>
+								<button class="dialog-link" data-url="visitor.php" data-cmd="question_url" data-hiduke="2024/05/15">アンケートURL</button>
+
+							</div>
+
+													<div class="next_meeting">
+																	<h6>第116回</h6>
+																<h6 id="next_place">2024/05/22</h6>
+																<p>7:15〜9：00</p>
+								<p><a class="zoomlink" href="https://bnionline.zoom.us/j/9458901558?pwd=VXBzcEtwcGRBWFZyeS9NS2dIRTJJdz09" target="_blank">ZOOM</a><br />
+
+<br />
+ミーティングID: 945 890 1558<br />
+パスコード: 0915<br />
+</p>
+								<p><br />
+</p>
+								<p class="visitor_count">2</p>
+								<p class="guest_count">0</p>
+																	<div class="bni_place_chart_area">
+										<p>【確度】</p>
+										<canvas id="chart142"></canvas>
+									</div>
+									<div class="bni_place_chart_area">
+										<p>【進捗】</p>
+										<canvas id="chart_tanto142"></canvas>
+									</div>
+								
+								<div class="place_id_list" data-place_id="142"></div>
+								
+								<button class="download-link" data-url="https://ne001.ncas.jp/bni_memberbook/bni_memberbook.php" data-cmd="booklet" data-filename="member.pdf">メンバー冊子</button> <span class="ajax-link" data-url="https://ne001.ncas.jp/bni_memberbook/bni_memberbook.php" data-cmd="edit" style="text-decoration: underline;cursor: pointer;color:blue;">自分の情報を編集</span>
+
+								<button class="dialog-link" data-url="visitor.php" data-cmd="print_visitor_select" data-hiduke="2024/05/22">アジェンダの印刷</button>
+								<button class="dialog-link" data-url="visitor.php" data-cmd="question_url" data-hiduke="2024/05/22">アンケートURL</button>
+
+							</div>
+
+						
+
+						<div style="clear:both;"></div>
+								<div id="yotei_referral">
+									<h3>ビジネスマッチング&nbsp;（累計紹介希望数：<span id="shokai_count"></span>件）</h3>
+										<h4>紹介してもらいたいビジターのキーワードを登録して下さい</h4>
+										<div><div id="keyword_settei">検索ワード設定</div>
+											<span id="meibo_keyword" style="display:block;text-align: center;"></span>
+										</div>
+										<img src="https://ne001.ncas.jp/images/shokai-3.png" style="margin-bottom:10px;">
+										<h4>あなたのリファーラル対象ビジター様</h4>
+										<div id="shokai_list" style="text-align: left;"></div>
+										<img src="https://ne001.ncas.jp/images/shokai-1.png">
+										<h4 style="margin-top:30px;">メンバーからの紹介希望</h4>
+										<div id="shokai_kibo_list" style="text-align: left;"></div>
+										<img src="https://ne001.ncas.jp/images/shokai-2.png">
+								</div>
+						<div style="clear:both;"></div>
+
+						<div class="yotei_area">
+							<h5>チャプターイベント</h5>
+							<p class="dialog-link textlink" data-url="bni.php" data-cmd="yotei_append">イベントを追加</p>　&nbsp;<a href="bni.php" class="textlink">全て閉じる</a>
+							<div style="clear:both;"></div>
+																								<div class="yotei_box" style="border:2px #CCCCCC solid">
+									
+										
+																							<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_join" data-id="135" style="float:right;color:black;margin-right:5px;width:100px;background: #0089FF;color:#FFF;padding:5px;height:auto;">参加・不参加</button>
+																					
+										<div class="title">5月8日（水）リージョンフォーラム🌳　5月1日入力締め切り</div>
+																					<div class="date">2024/05/08</div>
+																				<div class="time">18:00-20:30</div>
+
+										
+											<div class="yotei_info_area">
+																								<div class="join_count">22人</div>
+												<button class="download-link schedulebutton" data-url="bni.php" data-cmd="yotei_csv" data-id="135" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;" data-filename="5月8日（水）リージョンフォーラム🌳　5月1日入力締め切り-参加者.csv">参加者CSV</button>
+												<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_sankasha" data-id="135" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;">参加者を見る</button>
+																								
+										<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_edit" data-id="135" style="float:right;color:black;"><span class="ui-icon ui-icon-pencil"></span></button>
+											</div>
+										
+										<div class="memo">参加ボタンを押した後、備考に「対面」「オンライン」を明記してください。<br />
+</div>
+
+
+									</div>
+																									<div class="yotei_box" style="border:2px #F9FF27 solid">
+									
+										
+																							<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_join" data-id="142" style="float:right;color:black;margin-right:5px;width:100px;background: #0089FF;color:#FFF;padding:5px;height:auto;">参加・不参加</button>
+																					
+										<div class="title">5月8日リージョンフォーラム打ち上げ</div>
+																					<div class="date">2024/05/08</div>
+																				<div class="time">20:45-22:30くらい</div>
+
+										
+											<div class="yotei_info_area">
+																								<div class="join_count">6人</div>
+												<button class="download-link schedulebutton" data-url="bni.php" data-cmd="yotei_csv" data-id="142" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;" data-filename="5月8日リージョンフォーラム打ち上げ-参加者.csv">参加者CSV</button>
+												<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_sankasha" data-id="142" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;">参加者を見る</button>
+																								
+										<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_edit" data-id="142" style="float:right;color:black;"><span class="ui-icon ui-icon-pencil"></span></button>
+											</div>
+										
+										<div class="memo">会場近くのお店を探します！<br />
+会費は割り勘ですが、3000円〜5000円くらいかと思います。<br />
+<br />
+幹事：一柳<br />
+</div>
+
+
+									</div>
+																									<div class="yotei_box" style="border:2px #FB0000 solid">
+									
+										
+																							<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_join" data-id="131" style="float:right;color:black;margin-right:5px;width:100px;background: #0089FF;color:#FFF;padding:5px;height:auto;">参加・不参加</button>
+																					
+										<div class="title">加入率ワークショップ（福岡博多リージョン）</div>
+																					<div class="date">2024/05/16</div>
+																				<div class="time">17:00~19:30</div>
+
+										
+											<div class="yotei_info_area">
+																								<div class="join_count">5人</div>
+												<button class="download-link schedulebutton" data-url="bni.php" data-cmd="yotei_csv" data-id="131" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;" data-filename="加入率ワークショップ（福岡博多リージョン）-参加者.csv">参加者CSV</button>
+												<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_sankasha" data-id="131" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;">参加者を見る</button>
+																								
+										<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_edit" data-id="131" style="float:right;color:black;"><span class="ui-icon ui-icon-pencil"></span></button>
+											</div>
+										
+										<div class="memo">加入率ワークショップ（福岡博多リージョン）<br />
+<br />
+▼こちらから参加申し込みお願いします。<br />
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdMhUliUyiXdEfq49uSZ8eW3mGgYSwa6QwDcG1H9sjM92Lzug/viewform" target="_blank">https://docs.google.com/forms/d/e/1FAIpQLSdMhUliUyiXdEfq49uSZ8eW3mGgYSwa6QwDcG1H9sjM92Lzug/viewform</a><br />
+<br />
+＊注意＊ 他リージョンのイベントのため、NCASだけでは参加になりません！<br />
+<br />
+</div>
+
+
+									</div>
+																									<div class="yotei_box" style="border:2px #CCCCCC solid">
+									
+										
+																							<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_join" data-id="127" data-join_id="3847" style="float:right;color:black;margin-right:5px;width:100px;padding:5px;height:auto;">入力済</button>
+																					
+										<div class="title">5/17(金）７期対面イベント①</div>
+																					<div class="date">2024/05/17</div>
+																				<div class="time">18:00～21:00</div>
+
+										
+											<div class="yotei_info_area">
+																								<div class="join_count">15人</div>
+												<button class="download-link schedulebutton" data-url="bni.php" data-cmd="yotei_csv" data-id="127" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;" data-filename="5/17(金）７期対面イベント①-参加者.csv">参加者CSV</button>
+												<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_sankasha" data-id="127" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;">参加者を見る</button>
+																								
+										<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_edit" data-id="127" style="float:right;color:black;"><span class="ui-icon ui-icon-pencil"></span></button>
+											</div>
+										
+										<div class="memo">７期①回目のSilvis対面イベントとなります。<br />
+BNIの実施ルールに則り、チャプター内での信頼関係向上が目的となります。<br />
+<br />
+実施場所：JR秋葉原駅徒歩５～７分<br />
+　　　　　studio merry　東京都台東区台東１丁目１４−１４<br />
+　　　　　https://www.studiomerry.jp/<br />
+　　　　　※港中央リージョン　フュージョンチャプター　吉野正悟さんのスタジオ<br />
+<br />
+参加費：3000～5000円前後を予定<br />
+　　　※店舗での飲食ではないため、比較的ご負担は安くなるかと思います<br />
+<br />
+対面イベント担当：三輪<br />
+</div>
+
+
+									</div>
+																									<div class="yotei_box" style="border:2px #CCCCCC solid">
+									
+										
+																							<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_join" data-id="132" style="float:right;color:black;margin-right:5px;width:100px;background: #0089FF;color:#FFF;padding:5px;height:auto;">参加・不参加</button>
+																					
+										<div class="title">【第四期】令和のBODで活用するBODマニュアルの勉強会</div>
+																					<div class="date">2024/05/18</div>
+																				<div class="time">8:00〜9:00</div>
+
+										
+											<div class="yotei_info_area">
+																								<div class="join_count">5人</div>
+												<button class="download-link schedulebutton" data-url="bni.php" data-cmd="yotei_csv" data-id="132" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;" data-filename="【第四期】令和のBODで活用するBODマニュアルの勉強会-参加者.csv">参加者CSV</button>
+												<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_sankasha" data-id="132" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;">参加者を見る</button>
+																								
+										<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_edit" data-id="132" style="float:right;color:black;"><span class="ui-icon ui-icon-pencil"></span></button>
+											</div>
+										
+										<div class="memo">【第四期】令和のBODで活用するBODマニュアルの勉強会<br />
+<a href="https://bni.jp/ja/eventdetails?eventId=qHm%2FU%2BGIMCondpBzXISyVw%3D%3D" target="_blank">https://bni.jp/ja/eventdetails?eventId=qHm%2FU%2BGIMCondpBzXISyVw%3D%3D</a><br />
+<br />
+</div>
+
+
+									</div>
+																									<div class="yotei_box" style="border:2px #1B11CC solid">
+									
+										
+																							<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_join" data-id="134" style="float:right;color:black;margin-right:5px;width:100px;background: #0089FF;color:#FFF;padding:5px;height:auto;">参加・不参加</button>
+																					
+										<div class="title">欲しいリファーラルを貰うために自分のビジネスを細分化しよう！(RM講座シェア会)</div>
+																					<div class="date">2024/05/25</div>
+																				<div class="time">20:00～21:00</div>
+
+										
+											<div class="yotei_info_area">
+																								<div class="join_count">3人</div>
+												<button class="download-link schedulebutton" data-url="bni.php" data-cmd="yotei_csv" data-id="134" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;" data-filename="欲しいリファーラルを貰うために自分のビジネスを細分化しよう！(RM講座シェア会)-参加者.csv">参加者CSV</button>
+												<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_sankasha" data-id="134" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;">参加者を見る</button>
+																								
+										<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_edit" data-id="134" style="float:right;color:black;"><span class="ui-icon ui-icon-pencil"></span></button>
+											</div>
+										
+										<div class="memo">先方のご都合で4月は無しになりました！<br />
+大阪シティセントラルのREALIZEチャプターさんのご厚意で毎月リファーラルマーケティング講座の最終日に開かれているシェア会です！4日間にわたる講座の振り返りからLCD(ビジネスを細分化)の実践までしてくれる内容です。<br />
+自分のことはなかなかわからない、他人から見て判りやすくするにはどうすればいいのか？<br />
+自身のビジネスをとことん細分化してみれば見えて来ます！<br />
+BORに分かれてのシェアから新たな出会いにも繋がるお得な時間。<br />
+<br />
+参加希望者は以下のフォームからお申し込みが可能です！<br />
+<br />
+<br />
+来月からまたw4の夜に20:00より開催しますので、お会いできますこと楽しみにしております💗<br />
+こちらの申込みフォームをお送りください🙏<br />
+<br />
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSf2BvZ3nK40wfmUb2KzkovhvI5xOnqBrjQIByB-SMHxaUbcgA/viewform?usp=sf_link" target="_blank">https://docs.google.com/forms/d/e/1FAIpQLSf2BvZ3nK40wfmUb2KzkovhvI5xOnqBrjQIByB-SMHxaUbcgA/viewform?usp=sf_link</a><br />
+<br />
+5月25日(土) 　20時～ 21時半　RM講座シェア＆実践勉強会申し込みフォーム<br />
+20:00～21:00 講座参加者はアウトプットと実践の場として、参加できなかった方はぜひ新たな気づきとメンバーのシェアを聞ける貴重な時間にご活用ください！ 参加条件　BNIメンバーで、本気でリファーラルマーケティングを実践したい方<br />
+参加 Zoom ミーティング<br />
+<a href="https://us06web.zoom.us/j/4683074286?pwd=ucEalsDRcbqTjA359fh8vha9Gc3sHY.1&omn=85363132281" target="_blank">https://us06web.zoom.us/j/4683074286?pwd=ucEalsDRcbqTjA359fh8vha9Gc3sHY.1&omn=85363132281</a> ミーティング ID: 468 307 4286 パスコード: nassy<br />
+<br />
+☆リファーラルマーケティング講座の学びを実践編として他チャプターの志の高いメンバーとのネットワーキングしながら、振り返りとエデュケーション、実践ワーク等をしていく貴重な時間となりますので、是非チャプターの仲間をお誘いいただきご参加ください！<br />
+<br />
+</div>
+
+
+									</div>
+																									<div class="yotei_box" style="border:2px #CCCCCC solid">
+									
+										
+																							<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_join" data-id="141" style="float:right;color:black;margin-right:5px;width:100px;background: #0089FF;color:#FFF;padding:5px;height:auto;">参加・不参加</button>
+																					
+										<div class="title">SILVISの泉　～西山遥翔（ハルカ）編～</div>
+																					<div class="date">2024/05/29</div>
+																				<div class="time">9:45～10:45</div>
+
+										
+											<div class="yotei_info_area">
+																								<div class="join_count">9人</div>
+												<button class="download-link schedulebutton" data-url="bni.php" data-cmd="yotei_csv" data-id="141" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;" data-filename="SILVISの泉　～西山遥翔（ハルカ）編～-参加者.csv">参加者CSV</button>
+												<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_sankasha" data-id="141" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;">参加者を見る</button>
+																								
+										<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_edit" data-id="141" style="float:right;color:black;"><span class="ui-icon ui-icon-pencil"></span></button>
+											</div>
+										
+										<div class="memo">zoomは近くこちらに貼付します。<br />
+当日まで楽しみにお待ちくださいませ。<br />
+</div>
+
+
+									</div>
+																									<div class="yotei_box" style="border:2px #CCCCCC solid">
+									
+										
+																							<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_join" data-id="136" style="float:right;color:black;margin-right:5px;width:100px;background: #0089FF;color:#FFF;padding:5px;height:auto;">参加・不参加</button>
+																					
+										<div class="title">6月5日（水）リージョンフォーラム🌳　6月1日入力締め切り</div>
+																					<div class="date">2024/06/05</div>
+																				<div class="time">18:00-20:30</div>
+
+										
+											<div class="yotei_info_area">
+																								<div class="join_count">7人</div>
+												<button class="download-link schedulebutton" data-url="bni.php" data-cmd="yotei_csv" data-id="136" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;" data-filename="6月5日（水）リージョンフォーラム🌳　6月1日入力締め切り-参加者.csv">参加者CSV</button>
+												<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_sankasha" data-id="136" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;">参加者を見る</button>
+																								
+										<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_edit" data-id="136" style="float:right;color:black;"><span class="ui-icon ui-icon-pencil"></span></button>
+											</div>
+										
+										<div class="memo">参加ボタンを押した後、備考に「対面」「オンライン」を明記してください。<br />
+</div>
+
+
+									</div>
+																									<div class="yotei_box" style="border:2px #CCCCCC solid">
+									
+										
+																							<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_join" data-id="137" style="float:right;color:black;margin-right:5px;width:100px;background: #0089FF;color:#FFF;padding:5px;height:auto;">参加・不参加</button>
+																					
+										<div class="title">7月5日（金）リージョンフォーラム🌳　7月1日入力締め切り</div>
+																					<div class="date">2024/07/05</div>
+																				<div class="time">18:00-20:30</div>
+
+										
+											<div class="yotei_info_area">
+																								<div class="join_count">7人</div>
+												<button class="download-link schedulebutton" data-url="bni.php" data-cmd="yotei_csv" data-id="137" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;" data-filename="7月5日（金）リージョンフォーラム🌳　7月1日入力締め切り-参加者.csv">参加者CSV</button>
+												<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_sankasha" data-id="137" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;">参加者を見る</button>
+																								
+										<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_edit" data-id="137" style="float:right;color:black;"><span class="ui-icon ui-icon-pencil"></span></button>
+											</div>
+										
+										<div class="memo">参加ボタンを押した後、備考に「対面」「オンライン」を明記してください。<br />
+</div>
+
+
+									</div>
+																									<div class="yotei_box" style="border:2px #CCCCCC solid">
+									
+										
+																							<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_join" data-id="139" style="float:right;color:black;margin-right:5px;width:100px;background: #0089FF;color:#FFF;padding:5px;height:auto;">参加・不参加</button>
+																					
+										<div class="title">9月5日（木）リージョンフォーラム🌳　9月1日入力締め切り</div>
+																					<div class="date">2024/09/05</div>
+																				<div class="time">18:00-20:30</div>
+
+										
+											<div class="yotei_info_area">
+																								<div class="join_count">6人</div>
+												<button class="download-link schedulebutton" data-url="bni.php" data-cmd="yotei_csv" data-id="139" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;" data-filename="9月5日（木）リージョンフォーラム🌳　9月1日入力締め切り-参加者.csv">参加者CSV</button>
+												<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_sankasha" data-id="139" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;">参加者を見る</button>
+																								
+										<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_edit" data-id="139" style="float:right;color:black;"><span class="ui-icon ui-icon-pencil"></span></button>
+											</div>
+										
+										<div class="memo">参加ボタンを押した後、備考に「対面」「オンライン」を明記してください。<br />
+</div>
+
+
+									</div>
+																									<div class="yotei_box" style="border:2px #CCCCCC solid">
+									
+										
+																							<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_join" data-id="140" style="float:right;color:black;margin-right:5px;width:100px;background: #0089FF;color:#FFF;padding:5px;height:auto;">参加・不参加</button>
+																					
+										<div class="title">10月15日（火）リージョンフォーラム🌳　10月1日入力締め切り</div>
+																					<div class="date">2024/10/15</div>
+																				<div class="time">18:00-20:30</div>
+
+										
+											<div class="yotei_info_area">
+																								<div class="join_count">4人</div>
+												<button class="download-link schedulebutton" data-url="bni.php" data-cmd="yotei_csv" data-id="140" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;" data-filename="10月15日（火）リージョンフォーラム🌳　10月1日入力締め切り-参加者.csv">参加者CSV</button>
+												<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_sankasha" data-id="140" style="float:none; display: inline-block;color:black;margin-right:5px;width:100px;">参加者を見る</button>
+																								
+										<button class="dialog-link schedulebutton" data-url="bni.php" data-cmd="yotei_edit" data-id="140" style="float:right;color:black;"><span class="ui-icon ui-icon-pencil"></span></button>
+											</div>
+										
+										<div class="memo">参加ボタンを押した後、備考に「対面」「オンライン」を明記してください。<br />
+</div>
+
+
+									</div>
+																							</div>
+
+
+							<div class="yotei_area">
+								<h5>リージョンイベント</h5>
+															　&nbsp;<a href="bni.php" class="textlink">全て閉じる</a>
+								<div style="clear:both;"></div>
+								<!-- リージョン全体 -->
+																											<div class="yotei_box" style="border:2px #CCCCCC solid">
+																					
+																							<a target="_blank" href="https://pro.form-mailer.jp/fms/4482e61b310298" style="float:right;color:black;margin-right:5px;width:200px;background: #0089FF;color:#FFF;border-radius: 3px; height:auto;text-align: center;">参加申し込み</a>
+
+											
+											<div class="title">【BNI N.E.】5/7 ビジター招待WS</div>
+																							<div class="date">2024/05/07</div>
+																						<div class="time">18:00-20:00</div>
+
+																						<div class="memo">ビジター招待ワークショップ参加申込みフォーム<br />
+NE/金沢/富山/福岡博多/奈良市京都南リージョン限定開催<br />
+開催日 : 2024年5月7日(火)<br />
+時間 : 18:00-20:00<br />
+講師 ： 亀卦川エリア・ディレクター、秋山貴代ディレクター<br />
+参加締切: 5月6日(月) 正午<br />
+参加費： 0円<br />
+最小催行人数 : 6名<br />
+開催形式：オンライン（ZOOM）<br />
+招待URL・ミーティングIDは開催日当日30分前までにメールにて配信　※Zoomリンクが届かない場合は、所属チャプターの担当ディレクターへご相談ください。<br />
+<br />
+【参加条件】<br />
+パソコンでログインしてください。やむを得ず、スマホやタブレットで参加する場合は事前にkinoshita@bni-tne.com宛にご連絡ください。<br />
+<br />
+お1人様、1端末にてお入りください。もし、追加で端末を入れたい場合は事前にkinoshita@bni-tne.com宛にご連絡ください。<br />
+<br />
+【環境】<br />
+・資料の共有があるのでパソコンでご参加ください。<br />
+　また、webカメラが接続されているかどうかをご確認ください(内蔵カメラでもＯＫ)<br />
+・Wi-Fi（無線LAN） を使用している場合、ルーターからパソコンまでの距離が遠かったりすると電波が届きづらいことがあります。<br />
+　このような場合、スムーズに受講できないことがありますので、受講前にインターネット回線が適切につながっているかをご確認ください。<br />
+・自分で確認するには<br />
+　速度の測り方→参照：https://fast.com/ja/<br />
+　20Mbpsあれば見ることは可能ですが、快適に使うには30Mbpsが推奨<br />
+・skype、Facetimeなど、webカメラを使用するアプリを利用している方は、アプリを完全に終了させてください。終了していないと、ZOOMでwebカメラを使用することができません。<br />
+<br />
+【お願い】<br />
+開始30分前からミーティングルームでスタンバイしております。余裕を持ってミーティングルームにご入室ください。開始直前や開始直後に入室し、接続がうまくいかないといったトラブルが発生しますと、他の方のご迷惑となりますので、余裕を持ってご入室ください。ご協力お願いします。<br />
+トレーニングは定刻にスタートいたします。<br />
+参加人数や進行状況により、延長の可能性があります。<br />
+<br />
+【キャンセルポリシー】<br />
+キャンセルの場合は、前日の正午までに下記キャンセルフォームにてご連絡ください。<br />
+<a href="https://pro.form-mailer.jp/fms/7416efe5220215" target="_blank">https://pro.form-mailer.jp/fms/7416efe5220215</a><br />
+<br />
+ご不明な点は担当ディレクターへご相談ください。<br />
+</div>
+
+
+										</div>
+																												<div class="yotei_box" style="border:2px #CCCCCC solid">
+																					
+																							<a target="_blank" href="https://pro.form-mailer.jp/fms/491f9c71310304" style="float:right;color:black;margin-right:5px;width:200px;background: #0089FF;color:#FFF;border-radius: 3px; height:auto;text-align: center;">参加申し込み</a>
+
+											
+											<div class="title">【BNI N.E.】5/27 ビジターホストワークショップ</div>
+																							<div class="date">2024/05/27</div>
+																						<div class="time">17:00-19:00</div>
+
+																						<div class="memo">開催日 : 2024年5月27日(月)<br />
+時間 : 17:00-19:00<br />
+講師 ： 亀卦川エリア・ディレクター、田畑ディレクター、斉藤ディレクター<br />
+参加費： 0円<br />
+最小催行人数 : 6名<br />
+申込締切 : 開催前営業日正午<br />
+開催形式：オンライン（ZOOM）<br />
+<br />
+【内容】<br />
+クロージングのための<br />
+①マインド<br />
+②フロー<br />
+③反対処理<br />
+④申込書記載方法<br />
+⑤申込書提出後の流れ<br />
+⑥FOCUS機能のお知らせ<br />
+<br />
+【参加条件】<br />
+パソコンでログインしてください。やむを得ず、スマホやタブレットで参加する場合は事前にkinoshita@bni-tne.com宛にご連絡ください。<br />
+<br />
+お1人様、1端末にてお入りください。もし、追加で端末を入れたい場合は事前にkinoshita@bni-tne.com宛にご連絡ください。<br />
+<br />
+【環境】<br />
+・資料の共有があるのでパソコンでご参加ください。<br />
+　また、webカメラが接続されているかどうかをご確認ください(内蔵カメラでもＯＫ)<br />
+・Wi-Fi（無線LAN） を使用している場合、ルーターからパソコンまでの距離が遠かったりすると電波が届きづらいことがあります。<br />
+　このような場合、スムーズに受講できないことがありますので、受講前にインターネット回線が適切につながっているかをご確認ください。<br />
+・自分で確認するには<br />
+　速度の測り方→参照：https://fast.com/ja/<br />
+　20Mbpsあれば見ることは可能ですが、快適に使うには30Mbpsが推奨<br />
+・skype、Facetimeなど、webカメラを使用するアプリを利用している方は、アプリを完全に終了させてください。終了していないと、ZOOMでwebカメラを使用することができません。<br />
+<br />
+【お願い】<br />
+開始30分前からミーティングルームでスタンバイしております。余裕を持ってミーティングルームにご入室ください。開始直前や開始直後に入室し、接続がうまくいかないといったトラブルが発生しますと、他の方のご迷惑となりますので、余裕を持ってご入室ください。ご協力お願いします。<br />
+トレーニングは定刻にスタートいたします。<br />
+参加人数や進行状況により、延長の可能性があります。<br />
+<br />
+【キャンセルポリシー】<br />
+キャンセルの場合は、前日の正午までに下記キャンセルフォームにてご連絡ください。<br />
+<a href="https://pro.form-mailer.jp/fms/7416efe5220215" target="_blank">https://pro.form-mailer.jp/fms/7416efe5220215</a><br />
+<br />
+ご不明な点は担当ディレクターへご相談ください。<br />
+</div>
+
+
+										</div>
+																												<div class="yotei_box" style="border:2px #CCCCCC solid">
+																					
+																							<a target="_blank" href="https://pro.form-mailer.jp/fms/fe4463d4261765" style="float:right;color:black;margin-right:5px;width:200px;background: #0089FF;color:#FFF;border-radius: 3px; height:auto;text-align: center;">参加申し込み</a>
+
+											
+											<div class="title">【BNI N.E.】エグゼクティブ・ディレクターとのランチ会</div>
+																							<div class="date">2024/05/29</div>
+																						<div class="time">12:30-14:00</div>
+
+																						<div class="memo">2月は、7名が参加するランチ会となりました。ありがとうございます。<br />
+場所：上野東天紅本店<br />
+人数：１5名まで<br />
+参加費：無料<br />
+4月26日対象: 3月のメンバートラフィックでグリーンメンバー ※年齢不問<br />
+5月29日対象: 3月または4月のメンバートラフィックでグリーンメンバー ※年齢不問<br />
+目的:Executive Directorの木下とメンバーとの交流（リアル開催のみ）<br />
+・CEUポイント付き<br />
+<br />
+ただし、キャンセルポリシーは３日前の正午といたします。個人に請求させていただきます。<br />
+<br />
+</div>
+
+
+										</div>
+																												<div class="yotei_box" style="border:2px #CCCCCC solid">
+																					
+																							<a target="_blank" href="https://pro.form-mailer.jp/fms/a4a93ea4310305" style="float:right;color:black;margin-right:5px;width:200px;background: #0089FF;color:#FFF;border-radius: 3px; height:auto;text-align: center;">参加申し込み</a>
+
+											
+											<div class="title">【BNI N.E.】5/30 BNIセットアップワークショップ</div>
+																							<div class="date">2024/05/30</div>
+																						<div class="time">18:00-20:00</div>
+
+																						<div class="memo">開催日 : 2024年5月30日(木)<br />
+時間 : 18:00-20:00<br />
+講師 ： 亀卦川エリア・ディレクター、増田ディレクター<br />
+参加費： 0円<br />
+最小催行人数 : 6名<br />
+申込締切 : 開催前営業日正午<br />
+開催形式：オンライン（ZOOM）<br />
+<br />
+【内容】<br />
+１　得たい成果を明確化する<br />
+２　マーケターとして準備すること<br />
+３　自分のチームをイメージする<br />
+４　仲間の協力を得る<br />
+<br />
+【参加条件】<br />
+パソコンでログインしてください。やむを得ず、スマホやタブレットで参加する場合は事前にkinoshita@bni-tne.com宛にご連絡ください。<br />
+<br />
+お1人様、1端末にてお入りください。もし、追加で端末を入れたい場合は事前にkinoshita@bni-tne.com宛にご連絡ください。<br />
+<br />
+【環境】<br />
+・資料の共有があるのでパソコンでご参加ください。<br />
+　また、webカメラが接続されているかどうかをご確認ください(内蔵カメラでもＯＫ)<br />
+・Wi-Fi（無線LAN） を使用している場合、ルーターからパソコンまでの距離が遠かったりすると電波が届きづらいことがあります。<br />
+　このような場合、スムーズに受講できないことがありますので、受講前にインターネット回線が適切につながっているかをご確認ください。<br />
+・自分で確認するには<br />
+　速度の測り方→参照：https://fast.com/ja/<br />
+　20Mbpsあれば見ることは可能ですが、快適に使うには30Mbpsが推奨<br />
+・skype、Facetimeなど、webカメラを使用するアプリを利用している方は、アプリを完全に終了させてください。終了していないと、ZOOMでwebカメラを使用することができません。<br />
+<br />
+【お願い】<br />
+開始30分前からミーティングルームでスタンバイしております。余裕を持ってミーティングルームにご入室ください。開始直前や開始直後に入室し、接続がうまくいかないといったトラブルが発生しますと、他の方のご迷惑となりますので、余裕を持ってご入室ください。ご協力お願いします。<br />
+トレーニングは定刻にスタートいたします。<br />
+参加人数や進行状況により、延長の可能性があります。<br />
+<br />
+【キャンセルポリシー】<br />
+キャンセルの場合は、前日の正午までに下記キャンセルフォームにてご連絡ください。<br />
+<a href="https://pro.form-mailer.jp/fms/7416efe5220215" target="_blank">https://pro.form-mailer.jp/fms/7416efe5220215</a><br />
+<br />
+ご不明な点は担当ディレクターへご相談ください。<br />
+</div>
+
+
+										</div>
+																												<div class="yotei_box" style="border:2px #CCCCCC solid">
+																					
+																							<a target="_blank" href="https://pro.form-mailer.jp/fms/d014f2af310723" style="float:right;color:black;margin-right:5px;width:200px;background: #0089FF;color:#FFF;border-radius: 3px; height:auto;text-align: center;">参加申し込み</a>
+
+											
+											<div class="title">【BNI N.E.】6/13 ビジター招待WS</div>
+																							<div class="date">2024/06/13</div>
+																						<div class="time">18:00-20:00</div>
+
+																						<div class="memo">ビジター招待ワークショップ参加申込みフォーム<br />
+NE/金沢/富山/福岡博多/奈良市京都南リージョン限定開催<br />
+開催日 : 2024年6月13日(木)<br />
+時間 : 18:00-20:00<br />
+講師 ： 亀卦川エリア・ディレクター、秋山貴代ディレクター<br />
+参加締切: 6月12日(水) 正午<br />
+参加費： 0円<br />
+最小催行人数 : 6名<br />
+開催形式：オンライン（ZOOM）<br />
+招待URL・ミーティングIDは開催日当日30分前までにメールにて配信　※Zoomリンクが届かない場合は、所属チャプターの担当ディレクターへご相談ください。<br />
+<br />
+【参加条件】<br />
+パソコンでログインしてください。やむを得ず、スマホやタブレットで参加する場合は事前にkinoshita@bni-tne.com宛にご連絡ください。<br />
+<br />
+お1人様、1端末にてお入りください。もし、追加で端末を入れたい場合は事前にkinoshita@bni-tne.com宛にご連絡ください。<br />
+<br />
+【環境】<br />
+・資料の共有があるのでパソコンでご参加ください。<br />
+　また、webカメラが接続されているかどうかをご確認ください(内蔵カメラでもＯＫ)<br />
+・Wi-Fi（無線LAN） を使用している場合、ルーターからパソコンまでの距離が遠かったりすると電波が届きづらいことがあります。<br />
+　このような場合、スムーズに受講できないことがありますので、受講前にインターネット回線が適切につながっているかをご確認ください。<br />
+・自分で確認するには<br />
+　速度の測り方→参照：https://fast.com/ja/<br />
+　20Mbpsあれば見ることは可能ですが、快適に使うには30Mbpsが推奨<br />
+・skype、Facetimeなど、webカメラを使用するアプリを利用している方は、アプリを完全に終了させてください。終了していないと、ZOOMでwebカメラを使用することができません。<br />
+<br />
+【お願い】<br />
+開始30分前からミーティングルームでスタンバイしております。余裕を持ってミーティングルームにご入室ください。開始直前や開始直後に入室し、接続がうまくいかないといったトラブルが発生しますと、他の方のご迷惑となりますので、余裕を持ってご入室ください。ご協力お願いします。<br />
+トレーニングは定刻にスタートいたします。<br />
+参加人数や進行状況により、延長の可能性があります。<br />
+<br />
+【キャンセルポリシー】<br />
+キャンセルの場合は、前日の正午までに下記キャンセルフォームにてご連絡ください。<br />
+<a href="https://pro.form-mailer.jp/fms/7416efe5220215" target="_blank">https://pro.form-mailer.jp/fms/7416efe5220215</a><br />
+<br />
+ご不明な点は担当ディレクターへご相談ください。<br />
+</div>
+
+
+										</div>
+																												<div class="yotei_box" style="border:2px #CCCCCC solid">
+																					
+																							<a target="_blank" href="https://pro.form-mailer.jp/fms/3696aebc310724" style="float:right;color:black;margin-right:5px;width:200px;background: #0089FF;color:#FFF;border-radius: 3px; height:auto;text-align: center;">参加申し込み</a>
+
+											
+											<div class="title">【BNI N.E.】6/17 ビジターホストワークショップ</div>
+																							<div class="date">2024/06/17</div>
+																						<div class="time">時間 : 17:00-19:00</div>
+
+																						<div class="memo">開催日 : 2024年6月17日(月)<br />
+時間 : 17:00-19:00<br />
+講師 ： 亀卦川エリア・ディレクター、田畑ディレクター、斉藤ディレクター<br />
+参加費： 0円<br />
+最小催行人数 : 6名<br />
+申込締切 : 開催前営業日正午<br />
+開催形式：オンライン（ZOOM）<br />
+<br />
+【内容】<br />
+クロージングのための<br />
+①マインド<br />
+②フロー<br />
+③反対処理<br />
+④申込書記載方法<br />
+⑤申込書提出後の流れ<br />
+⑥FOCUS機能のお知らせ<br />
+<br />
+【参加条件】<br />
+パソコンでログインしてください。やむを得ず、スマホやタブレットで参加する場合は事前にkinoshita@bni-tne.com宛にご連絡ください。<br />
+<br />
+お1人様、1端末にてお入りください。もし、追加で端末を入れたい場合は事前にkinoshita@bni-tne.com宛にご連絡ください。<br />
+<br />
+【環境】<br />
+・資料の共有があるのでパソコンでご参加ください。<br />
+　また、webカメラが接続されているかどうかをご確認ください(内蔵カメラでもＯＫ)<br />
+・Wi-Fi（無線LAN） を使用している場合、ルーターからパソコンまでの距離が遠かったりすると電波が届きづらいことがあります。<br />
+　このような場合、スムーズに受講できないことがありますので、受講前にインターネット回線が適切につながっているかをご確認ください。<br />
+・自分で確認するには<br />
+　速度の測り方→参照：https://fast.com/ja/<br />
+　20Mbpsあれば見ることは可能ですが、快適に使うには30Mbpsが推奨<br />
+・skype、Facetimeなど、webカメラを使用するアプリを利用している方は、アプリを完全に終了させてください。終了していないと、ZOOMでwebカメラを使用することができません。<br />
+<br />
+【お願い】<br />
+開始30分前からミーティングルームでスタンバイしております。余裕を持ってミーティングルームにご入室ください。開始直前や開始直後に入室し、接続がうまくいかないといったトラブルが発生しますと、他の方のご迷惑となりますので、余裕を持ってご入室ください。ご協力お願いします。<br />
+トレーニングは定刻にスタートいたします。<br />
+参加人数や進行状況により、延長の可能性があります。<br />
+<br />
+【キャンセルポリシー】<br />
+キャンセルの場合は、前日の正午までに下記キャンセルフォームにてご連絡ください。<br />
+<a href="https://pro.form-mailer.jp/fms/7416efe5220215" target="_blank">https://pro.form-mailer.jp/fms/7416efe5220215</a><br />
+<br />
+ご不明な点は担当ディレクターへご相談ください。<br />
+</div>
+
+
+										</div>
+																												<div class="yotei_box" style="border:2px #CCCCCC solid">
+																					
+																							<a target="_blank" href="https://pro.form-mailer.jp/fms/d8aa615d310734" style="float:right;color:black;margin-right:5px;width:200px;background: #0089FF;color:#FFF;border-radius: 3px; height:auto;text-align: center;">参加申し込み</a>
+
+											
+											<div class="title">【BNI N.E.】6/27 BNIセットアップワークショップ</div>
+																							<div class="date">2024/06/27</div>
+																						<div class="time">18:00-20:00</div>
+
+																						<div class="memo">開催日 : 2024年6月27日(木)<br />
+時間 : 18:00-20:00<br />
+講師 ： 亀卦川エリア・ディレクター、増田ディレクター<br />
+参加費： 0円<br />
+最小催行人数 : 6名<br />
+申込締切 : 開催前営業日正午<br />
+開催形式：オンライン（ZOOM）<br />
+<br />
+【内容】<br />
+１　得たい成果を明確化する<br />
+２　マーケターとして準備すること<br />
+３　自分のチームをイメージする<br />
+４　仲間の協力を得る<br />
+<br />
+【参加条件】<br />
+パソコンでログインしてください。やむを得ず、スマホやタブレットで参加する場合は事前にkinoshita@bni-tne.com宛にご連絡ください。<br />
+<br />
+お1人様、1端末にてお入りください。もし、追加で端末を入れたい場合は事前にkinoshita@bni-tne.com宛にご連絡ください。<br />
+<br />
+【環境】<br />
+・資料の共有があるのでパソコンでご参加ください。<br />
+　また、webカメラが接続されているかどうかをご確認ください(内蔵カメラでもＯＫ)<br />
+・Wi-Fi（無線LAN） を使用している場合、ルーターからパソコンまでの距離が遠かったりすると電波が届きづらいことがあります。<br />
+　このような場合、スムーズに受講できないことがありますので、受講前にインターネット回線が適切につながっているかをご確認ください。<br />
+・自分で確認するには<br />
+　速度の測り方→参照：https://fast.com/ja/<br />
+　20Mbpsあれば見ることは可能ですが、快適に使うには30Mbpsが推奨<br />
+・skype、Facetimeなど、webカメラを使用するアプリを利用している方は、アプリを完全に終了させてください。終了していないと、ZOOMでwebカメラを使用することができません。<br />
+<br />
+【お願い】<br />
+開始30分前からミーティングルームでスタンバイしております。余裕を持ってミーティングルームにご入室ください。開始直前や開始直後に入室し、接続がうまくいかないといったトラブルが発生しますと、他の方のご迷惑となりますので、余裕を持ってご入室ください。ご協力お願いします。<br />
+トレーニングは定刻にスタートいたします。<br />
+参加人数や進行状況により、延長の可能性があります。<br />
+<br />
+【キャンセルポリシー】<br />
+キャンセルの場合は、前日の正午までに下記キャンセルフォームにてご連絡ください。<br />
+<a href="https://pro.form-mailer.jp/fms/7416efe5220215" target="_blank">https://pro.form-mailer.jp/fms/7416efe5220215</a><br />
+<br />
+ご不明な点は担当ディレクターへご相談ください。<br />
+</div>
+
+
+										</div>
+																										</div>
+							</div>
+
+						</div>
+
+
+
+						<div class="area_2 area">
+
+							<div id="nokori" style="display:none;">248805</div>
+
+							<h5>三役ホットライン</h5>
+							<a href="https://ne001.ncas.jp/bni_meyasubako/bni_meyasubako.php" class="online_menu_title">
+								<div class="bni_count_circle" id="count_meyasubako">0</div>
+								三役ホットライン（チャプター運営に関するご意見はこちらから）
+							</a>
+							<div class="award">
+								<p>三役ホットラインはきちんと運用することでこの機能の目的が実現します。三役ホットラインを利用する場合は下記の運用例を参考にして各チャプターで運用を規定してください。</p>
+								<p>【運用例】</p>
+								<p>１．ホットラインへの投稿があったら十役ミーティングなどで議題に必ず上げる。</p>
+								<p>２．YES/NOの決議をする。必要であれば投稿者とミーティングをして真摯に向き合う。</p>
+								<p>３．三役ホットラインの「回答」欄に必ず記入してクローズにする。</p>
+								<p>４．全メンバーにホットラインでの議案、経緯、決議内容を周知する。</p>
+							</div>
+
+							<h5>イベント</h5>
+							<a href="arigato.php" class="online_menu_title">
+								<div class="heart" id="count_arigato">
+									<div class="heart_text">0</div>
+								</div>
+								感謝のメッセージ（テキストで送れるFOCUSの機能です：推薦のことばで書けない感謝に関して）
+							</a>
+							<a href="suisen.php" class="online_menu_title">
+								<div class="bni_count_circle" id="count_file">1</div>
+								推薦のことば（BNIで定められている推薦のことばの管理機能です：相手の仕事に関して）
+							</a>
+
+														<h5>WEBマスター</h5>
+							<a href="https://ne001.ncas.jp/bni_slide/bni_slide.php" class="online_menu_title">
+								<div class="bni_count_circle" id="count_slide">0</div>
+								スライド変更依頼
+							</a>
+							
+							
+
+							<h5>書記兼会計</h5>
+							<a class="dialog-link online_menu_title" data-url="visitor.php" data-cmd="invoice" data-id="">ミーティング費の請求書・領収書印刷</a>
+							<a class="online_menu_title" href="https://ne001.ncas.jp/bni_ringisho/bni_ringisho.php">
+								<div class="bni_count_circle" id="count_ringisho">0</div>
+								稟議書
+							</a>
+														<a class="online_menu_title" href="https://ne001.ncas.jp/bni_shiharai/bni_shiharai.php">
+								<div class="bni_count_circle" id="count_shiharai">0</div>
+								支払申請
+							</a>
+
+
+
+
+
+
+
+							<h5>エデュケーション</h5>
+							<a class="dialog-link online_menu_title" data-url="https://ne001.ncas.jp/bni_podcast/bni_podcast.php" data-cmd="list">倍速Podcast（×1.8倍速で聴けます）</a>
+
+
+							
+
+						</div>
+
+
+
+
+
+						<div class="area_3 area">
+
+
+							<div id="shop_left">
+
+
+																<h6>My SHOP</h6>
+	<a class="online_menu_title" href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-kasamasatoshi" target="_blank">My Shop<a>
+								<a class="online_menu_title dialog-link" data-url="https://ne001.ncas.jp/app/app.php" data-class="bni_shop_config" data-function="edit">ネットショップの作成・設定</a>
+								<a class="online_menu_title" href="https://ne001.ncas.jp/app/app.php?class=bni_shop_shohin">商品管理</a>
+								<a class="online_menu_title" href="https://ne001.ncas.jp/app/app.php?class=bni_shop_jyuchu">受注管理
+									<div class="bni_count_circle" id="count_jyuchu"></div>
+								</a>
+								<a class="online_menu_title" href="https://ne001.ncas.jp/bni_shop_teiki/bni_shop_teiki.php">個別・分割・定期決済									
+									<div class="bni_count_circle" id="count_teiki"></div>
+								</a>
+
+								<h6 style="margin-top:20px;">SQUARE</h6>
+								<p><a href="https://squ.re/smbc0221" target="_blank">◆SQUARE新規申し込み</a></p>
+								<p><a href="https://ne001.ncas.jp/Templates/how_to_square.mp4" target="_blank">◆NCASとSQUAREの連携設定の方法（動画 4分17秒）</a></p>
+								<p><a href="https://squareup.com/login?lang_code=ja-jp" target="_blank" style="margin-top:10px;">◆Square ログイン</a></p>
+								<p><a href="https://developer.squareup.com/jp/ja" target="_blank">◆Square Developer</a></p>
+							</div>
+
+							<div id="shop_right">
+								<h4>セミナー・イベントリスト</h4>
+								<div id="seminar_list_area"></div>
+
+
+								<div class="shop_count">購入数累計：<span>383</span>&nbsp;&nbsp;&nbsp;購入金額累計：<span>1,561,439</span>円</div>
+
+								
+								<div class="netshoplist">
+																			<div class="shop">
+																						<h6><a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-miwatomohito&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">母の日の贈り物に　フラワーバルーンcocokara</a></h6>
+											<a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-miwatomohito&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">
+																									<div class="imgbox">
+																												<img src="https://ne001.ncas.jp/bni_shop_config/data/upload/shop-mv-bni-silvis-miwatomohito-1-s2.jpg">
+													</div>
+																							</a>
+										</div>
+																			<div class="shop">
+																						<h6><a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-matsuokayukiko&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">BNIで視覚情報を活用する！Yuki DESIGN</a></h6>
+											<a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-matsuokayukiko&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">
+																									<div class="imgbox">
+																												<img src="https://ne001.ncas.jp/bni_shop_config/data/upload/shop-mv-bni-silvis-matsuokayukiko-1-s2.jpg">
+													</div>
+																							</a>
+										</div>
+																			<div class="shop">
+																						<h6><a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-komatsumami&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">イニシャルコスト削減！オフィス内装デザイン施工・株式会社アルデコ</a></h6>
+											<a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-komatsumami&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">
+																									<div class="imgbox">
+																												<img src="https://ne001.ncas.jp/bni_shop_config/data/upload/shop-mv-bni-silvis-komatsumami-1-s2.jpg">
+													</div>
+																							</a>
+										</div>
+																			<div class="shop">
+																						<h6><a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-sanoshinsuke&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">de la specialite by佐野慎祐</a></h6>
+											<a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-sanoshinsuke&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">
+																									<div class="imgbox">
+																																												<img src="images/cards.png" class="cards">
+																																											<img src="https://ne001.ncas.jp/bni_shop_config/data/upload/shop-mv-bni-silvis-sanoshinsuke-1-s2.jpg">
+													</div>
+																							</a>
+										</div>
+																			<div class="shop">
+																						<h6><a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-tanakakazunari&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">事務用品＜ＮＡＶＩＬＩＯＮ＞</a></h6>
+											<a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-tanakakazunari&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">
+																									<div class="imgbox">
+																												<img src="https://ne001.ncas.jp/bni_shop_config/data/upload/shop-mv-bni-silvis-tanakakazunari-1-s2.jpg">
+													</div>
+																							</a>
+										</div>
+																			<div class="shop">
+																						<h6><a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-kasamasatoshi&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">法技研横浜法律事務所forBNI</a></h6>
+											<a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-kasamasatoshi&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">
+																									<div class="imgbox">
+																																												<img src="images/cards.png" class="cards">
+																																											<img src="https://ne001.ncas.jp/bni_shop_config/data/upload/shop-mv-bni-silvis-kasamasatoshi-1-s2.jpg">
+													</div>
+																							</a>
+										</div>
+																			<div class="shop">
+																						<h6><a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-nishiyamaharuka&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">個別ボイスカウンセリング</a></h6>
+											<a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-nishiyamaharuka&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">
+																									<div class="imgbox">
+																												<img src="https://ne001.ncas.jp/bni_shop_config/data/upload/shop-mv-bni-silvis-nishiyamaharuka-1-s2.jpg">
+													</div>
+																							</a>
+										</div>
+																			<div class="shop">
+																						<h6><a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-ariokahideo&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">Coach Office Arioka</a></h6>
+											<a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-ariokahideo&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">
+																									<div class="imgbox">
+																												<img src="https://ne001.ncas.jp/bni_shop_config/data/upload/shop-mv-bni-silvis-ariokahideo-1-s2.jpg">
+													</div>
+																							</a>
+										</div>
+																			<div class="shop">
+																						<h6><a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-sekiguchikeita&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">ゆめみ労務管理事務所</a></h6>
+											<a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-sekiguchikeita&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">
+																									<div class="imgbox">
+																												<img src="https://ne001.ncas.jp/bni_shop_config/data/upload/shop-mv-bni-silvis-sekiguchikeita-1-s2.jpg">
+													</div>
+																							</a>
+										</div>
+																			<div class="shop">
+																						<h6><a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-matsumotoichiya&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">ichiya</a></h6>
+											<a href="https://ne001.ncas.jp/bni_shop_cart/?shopid=bni-silvis-matsumotoichiya&rff=TjdYZUVldEI2SnY2akE0MEF3M0lUMjlyMTVIME80c3ovdGJMODNQV1ZSOD0%3D" target="_blank">
+																									<div class="imgbox">
+																																												<img src="images/cards.png" class="cards">
+																																											<img src="https://ne001.ncas.jp/bni_shop_config/data/upload/shop-mv-bni-silvis-matsumotoichiya-1-s2.jpg">
+													</div>
+																							</a>
+										</div>
+																	</div>
+                                                                							</div>
+
+
+						</div>
+
+
+						<div class="area_4 area">
+
+							<h5>管理</h5>
+							<a href="https://ne001.ncas.jp/userlist/user.php" class="online_menu_title">アカウント管理</a>
+							<a href="https://ne001.ncas.jp/bni_meibo/bni_meibo.php" class="online_menu_title">マスター名簿</a>
+							<a class="dialog-link online_menu_title" data-url="config.php" data-cmd="config">設定（基本・メール）</a>
+							<a class="online_menu_title" href="https://ne001.ncas.jp/bni_place/bni_place.php">設定（会場）</a>
+							
+							
+							
+							<h5>このシステムの想いと目的</h5>
+							<a class="dialog-link online_menu_title" data-url="visitor.php" data-cmd="nakama_message" data-id="">メッセージ</a>
+
+							<h5>システム管理</h5>
+														<a class="dialog-link online_menu_title" data-url="bni.php" data-cmd="message_all_input">リアルタイムメッセージを送信する</a>
+
+
+						</div>
+
+
+						<div class="area_5 area">
+
+							
+
+							<button class="dialog-link" data-url="https://ne001.ncas.jp/bni_movie/bni_movie.php" data-cmd="channel_append">動画を投稿する</button>
+
+
+							<div id="channel_view">
+								<p style="margin-top:30px;">右の検索ボックスから検索して下さい「税理士、猫、ゴルフ」などのフリーワードで検索できます。</p>
+							</div>
+
+							<div id="channel_list_area">
+								<input type="text" id="search_member" style="width:100%;" placeholder="メンバー検索（氏名・リファーラル・趣味など）">
+								<div id="channel_list">
+
+								</div>
+							</div>
+
+
+						</div>
+
+
+						<div class="area_6 area">
+
+							<div class="topinfo">
+								【トレーニングのススメ】<br />BNIのトレーニング（特にN.Eリージョン）は、マーケティングなどをしっかりと押さえた内容になっており、他で受講すれば何十万円もするような内容が詰め込まれています。トレーニングは「受講しなければならない」ものではなく、「受講すれば自分自身のためになる」ものです。単に「ビジターを呼ぶ方法」というものを教えらたりするのでありません。各自のビジネススキルが向上し、「BNIに入って良かった」という想いが、ビジターを呼ぶモチベーションになります。自分のビジネスを高めれば、他のメンバーからの信頼も高くなり、リファーラルに繋がります。ビジネスの向上に終わりはありません。トレーニングはBNIに入会している特典です。ぜひこの権利を使い、自身のビジネスを向上、発展させて下さい。また、人は「計画」しなければ夢で終わります。トレーニングファシリテーターという仕組みを使い、自分のトレーニング計画を作成して下さい。メンターは各メンバーのビジネス状況をしっかり考慮してあげて、無理なく効率的な計画づくりをサポートして下さい。
+							</div>
+
+							<div id="facilitator">
+
+								<form id="facilitator_form">
+
+									<h5>トレーニング受講プランナー</h5>
+
+									<div><p>BNIのコアバリューの一つである「生涯学習」を具体的に実践する一つの方法がトレーニング受講です。
+											1年に1回はすべてのトレーニングを受講し、共通言語、共通知識を確認することがチャプター、メンバーへの貢献となります。このトレーニング受講プランナーでトレーニングの受講スケジュールをプランニングしましょう。</p>
+
+										<p>※　FOCUS上部の「トレーニング」ボタン内に表示されている〇〇%はプランナーに記載されている受講日が1年以内のトレーニングの割合です。つまりチャプター、メンバーがBNIの共通言語、共通知識をどれだけ持てているかの指標となります。</p>
+
+										<p>※　記入方法：左記のトレーニング一覧からトレーニングを選択、「日付をコピー」をクリックした後、テキストボックスをクリックすると日付がコピーされます。手入力もできますが　2020/9/12 2020-9-12 の形式で半角で入力して下さい。</p></div>
+
+									<div class="traning_area">
+										<div class="traning_category">
+											<h6>BNIベーシック受講要件トレーニング</h6>
+											<div class="traning_type">
+											<h7>BNI Business Builder </h7>
+											<table>
+												<tr>
+													<td>メンバーサクセスプログラム(MSP)</td>
+													<td><input type="text" name="msp" value="" class="hiduke_copy"></td>
+												</tr>
+												<tr>
+													<td>MSアドオン</td>
+													<td><input type="text" name="adon" value="" class="hiduke_copy"></td>
+												</tr>
+												<tr>
+													<td>TLT</td>
+													<td><input type="text" name="m1" value="" class="hiduke_copy"></td>
+												</tr>
+											</table>
+											</div>
+											<div class="traning_type">
+											<h7>オンライン開催</h7>
+											<table>
+												<tr>
+													<td>ネットワーキングスキル</td>
+													<td><input type="text" name="network" value="" class="hiduke_copy"></td>
+												</tr>
+												<tr>
+													<td>チャプターディベロップメント</td>
+													<td><input type="text" name="chapter" value="" class="hiduke_copy"></td>
+												</tr>
+											</table>
+											</div>
+										</div>
+										<div class="traning_category">
+
+											<h6>BNIベーシック</h6>
+											<div class="traning_type">
+												<h7>オンライン開催</h7>
+												<table>
+													<tr>
+														<td>BNIベーシック</td>
+														<td><input type="text" name="basic" value="2023-05-26" class="hiduke_copy"></td>
+													</tr>
+												</table>
+											</div>
+										</div>
+
+										<div class="traning_category">
+											<h6>キースキルズ</h6>
+											<p>※BNIベーシック受講要件ではありませんが受講して生涯学習を実践しましょう。</p>
+
+											<div class="traning_type">
+												<h7>オンライン開催</h7>
+												<table>
+													<tr>
+														<td>1to1</td>
+														<td><input type="text" name="1to1" value="" class="hiduke_copy"></td>
+													</tr>
+													<tr>
+														<td>ウィークリー・プレゼンテ−ション</td>
+														<td><input type="text" name="weekly" value="" class="hiduke_copy"></td>
+													</tr>
+													<tr>
+														<td>メインプレゼンテーション</td>
+														<td><input type="text" name="main" value="2023-11-18" class="hiduke_copy"></td>
+													</tr>
+													<tr>
+														<td>リファーラルスキル</td>
+														<td><input type="text" name="ref" value="" class="hiduke_copy"></td>
+													</tr>
+												</table>
+								
+																<button id="facilitator_button_save">一時保存</button>
+																<div style="clear:both"></div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<h5>トレーニング　<button class="dialog-link" data-url="https://ne001.ncas.jp/bni_traning/bni_traning.php" data-cmd="region">リージョン設定</button></h5>
+
+							<div id="traning">Loading...</div>
+						</div>
+
+
+						<div class="area_7 area">
+							<h5>参加者の登録・管理</h5>
+							<a class="dialog-link online_menu_title" data-url="visitor.php" data-cmd="visitor_type" data-id="">ミーティング参加者を登録する　<span id="nokori_hiduke"></span></a>
+							<a href="visitor.php" class="online_menu_title">ミーティング参加者リスト（キャンセル、案内文の確認などもこちらから！）</a>
+
+															<h5>参加費の代理支払</h5>
+								<div class="online_menu_title peatix"><img src="Templates/peatix.png" style="width:100px;"><a href="https://peatix.com/group/11580486/events" target="_blank">　https://peatix.com/group/11580486/events</a></div>
+								
+
+							<h5>入会申し込み・管理</h5>
+							<a class="online_menu_title" href="https://ne001.ncas.jp/app/app.php?class=bni_mosikomi">
+								<div class="bni_count_circle" id="count_nyukai">0</div>
+								<span  style="font-size:20px;font-weight: bold;">入会申込&nbsp;</span></a>
+
+							
+							
+						</div>
+
+						<div class="area_8 area">
+							<h5>ファイル管理</h5>
+							<a class="online_menu_title" href="https://ne001.ncas.jp/bni_files/bni_files.php"><img src="Templates/file.png" class="file_icon">ファイル管理</a>
+
+							<h5>動画管理</h5>
+							<a class="online_menu_title" href="https://ne001.ncas.jp/bni_movie/bni_movie.php"><img src="Templates/file.png" class="file_icon">Vimeo動画</a>
+
+						</div>
+
+						<div class="area_9 area">
+							<h5>リンク</h5>
+														<p><a class="online_menu_title" href="https://www.bniconnectglobal.com/login/?message=" target="_blank">BNI Connect</a></p>
+							<p><a class="online_menu_title" href="https://www.schoox.com/academies/library2.php?acadId=8723" target="_blank">BNI Business Builder（MSP受講など）</a>
+							
+						</div>
+
+						<div class="area_10 area">
+							<button class="dialog-link" data-url="https://ne001.ncas.jp/bni_point/bni_point.php" data-cmd="select_date" style="float:right;">ポイント報告（ポイント修正もこちらから）</button>
+							<a class="bni_game_config_link" href="https://ne001.ncas.jp/bni_point/bni_point.php">BNIゲーム管理</a>
+
+							<div style="clear:both;"></div>
+
+							<h5>チームランキング（累計・人数平均）</h5>
+							<div class="item_team_list"></div>
+							<div class="wrap-chart">
+								<canvas id="point_team_weekly_avg"></canvas>
+							</div>
+							<button class="dialog-link schedulebutton" data-url="https://ne001.ncas.jp/bni_point/bni_point.php" data-cmd="ranking_pdf_team" style="float:none; display: inline-block;color:black;margin-right:5px;width:200px;">チームランキング・累計(PDF)</button>
+							<button class="dialog-link schedulebutton" data-url="https://ne001.ncas.jp/bni_point/bni_point.php" data-cmd="ranking_pdf_team_week" style="float:none; display: inline-block;color:black;margin-right:5px;width:200px;">チームランキング・先週(PDF)</button>
+
+							<h5>自分のポイント推移</h5>
+							<div class="item_point_list"></div>
+							<div class="wrap-chart">
+								<canvas id="point_team_weekly_personal"></canvas>
+							</div>
+
+							<div class="bni_chart_area">
+								<h5>自分の件数割合</h5>
+								<div style="padding:10%">
+									<div class="wrap-chart">
+										<canvas id="point_personal_pie"></canvas>
+									</div>
+								</div>
+							</div>
+
+							<div class="bni_chart_area">
+								<h5>チームメンバー推移</h5>
+								<div id="item_member_list"></div>
+								<div class="wrap-chart">
+									<canvas id="point_team_member"></canvas>
+								</div>
+							</div>
+
+							<div style="clear:both;"></div>
+
+							
+							
+							<div class="point_personal_area">
+								<h5 style="float:left;display: block;width:200px;">個人別集計</h5>
+								<select name="point_item" id="point_item_select" style="width:200px;display:block;float:right;margin-top:20px;">
+<option value="0" id="point_item_select-0">総合</option>
+<option value="66" id="point_item_select-1">新入会後援</option>
+<option value="67" id="point_item_select-2">ビジター招待</option>
+<option value="68" id="point_item_select-3">リージョンフォーラム参加</option>
+<option value="69" id="point_item_select-4">トレーニング参加</option>
+<option value="70" id="point_item_select-5">外部リファーラル</option>
+<option value="71" id="point_item_select-6">内部リファーラル</option>
+<option value="72" id="point_item_select-7">外部1to1</option>
+<option value="73" id="point_item_select-8">内部1to1</option>
+<option value="74" id="point_item_select-9">推薦の言葉</option>
+<option value="76" id="point_item_select-10">ナショナルカンファレンス（4月15日、16日開催）参加</option>
+</select>
+
+								<div style="clear:both;margin-bottom:10px;"></div>
+
+								<div class="bni_chart_area_by3">
+									<h6>累計ランキング(先週まで）</h6>
+									<div id="ranking_table_total"></div>
+									<button class="dialog-link schedulebutton" data-url="https://ne001.ncas.jp/bni_point/bni_point.php" data-cmd="ranking_table_total" data-type="all" data-output="pdf" style="float:none; display: inline-block;color:black;margin-right:5px;width:200px;">個人・総合ランキング(PDF)</button>
+								</div>
+								<div class="bni_chart_area_by3">
+									<h6>先週のランキング</h6>
+									<div id="ranking_table_lastweek"></div>
+									<button class="dialog-link schedulebutton" data-url="https://ne001.ncas.jp/bni_point/bni_point.php" data-cmd="ranking_table_total" data-type="lastweek" data-output="pdf" style="float:none; display: inline-block;color:black;margin-right:5px;width:200px;">個人・先週ランキング(PDF)</button>
+								</div>
+								<div class="bni_chart_area_by3">
+									<h6>今週のランキング</h6>
+									<div id="ranking_table_thisweek"></div>
+								</div>
+
+							</div>
+
+
+
+
+							<div style="clear:both;"></div>
+							<div id="team_list_all"></div>
+
+
+
+
+						</div>
+
+					</div>
+
+					<div id="nextplace_id" style="display:none;">140</div>
+
+					</article>
+
+
+					<footer>
+
+	<div class="copyright">N.E. Chapter Administration System</div>
+</footer>
+
+<div id="dialog"></div>
+
+		<div class="copy_paste_status_start"><button class="copy_paste_start">一括処理</button></div>
+		<div class="copy_paste_status_0">終点を指定して下さい。<button class="copy_paste_cancel">キャンセル</button></div>
+		<div class="copy_paste_status_1"><button class="copy_paste_paste">コピー＆貼付</button><button class="copy_paste_cancel">キャンセル</button><button class="copy_paste_delete">削除</button></div>
+
+
+		<div class="session_keeper"></div>
+		<div id="collision_check_login_id" style="display:none;">bni-silvis-kasamasatoshi</div>
+		<div id="session_id" style="display:none;">gn1bk76fdpu4lvs4hnbkb6sugl</div>
+		<div id="collision_check_str" style="display:none;">wth10zyoinv6krx975qj</div>
+		<div class="network_error">ネットワークエラーもしくはログインが競合したためこの画面は利用できません。このタブもしくはブラウザを閉じて下さい。</div>
+		<div class="message_all"></div>
+
+		<div id="download_view">
+			<div id="download_message"></div>
+			<div id="download_byte"></div>
+			<div id="download_bar"><div id="download_progress"></div></div>
+		</div>
+		
+		<div id="to_top">▲</div>
+
+		<div id="message_clipboard_copy">
+			<p>クリップボードにコピーしました</p>
+		</div>
+		
+		<div id="multi_dialog"></div>
+
+		<div id="vimeo_background"></div>
+		
+<script src="https://ne001.ncas.jp/js/functionjscomp.php"></script>
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-78X6GP43K2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-78X6GP43K2');
+</script>
+
+					<script src="https://ne001.ncas.jp/js/js.cookie.js"></script>
+
+					<div id="facilitator_save">
+						<p>保存しました</p>
+					</div>
+
+					<div class="chat_room">
+						<div class="node_message_area_close">×</div>
+						<div class="node_user_list_scroll">
+							<div class="node_user_list"></div>
+						</div>
+
+						<div class="node_message_area">
+							<div class="to_name"></div>
+							<div style="clear:both;"></div>
+							<div class="talk_area_scroll">
+								<div class="talk_area"></div>
+							</div>
+							<div style="clear:both;margin-bottom: 10px;"></div>
+							<textarea id="mail_txt"></textarea>
+							<button id="mail_send">送信する</button>
+						</div>
+					</div>
+
+					<div class="video_room">
+						<div class="video_room_close">×</div>
+						<div style="clear:both;"></div>
+						<div id="local_name"></div>
+						<div id="remote_name"></div>
+						<div class="video_local">
+							<video id="local_video"></video>
+
+						</div>
+						<div class="video_remote">
+							<video id="remote_video"></video>
+							<div class="loader_video"></div>
+						</div>
+					</div>
+
+					<div class="meibo_id">35</div>
+
+					</body>
+
+
+					</html>
+
+					<script src="bni.js"></script>
+
+					<script src="https://ne001.ncas.jp/js/jscolor.js"></script>
+
+

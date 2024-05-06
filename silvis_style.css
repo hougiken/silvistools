@@ -54,6 +54,18 @@
     font-weight:bold;
 }
 
+/* カルーセル関連。Slickを使います。 */
+.slick-slide {
+    transform: scale( .8);
+    height: 150px;
+    box-shadow: rgba(0,0,0,0.5) 0px 0px 10px;
+    overflow: clip;
+    text-align:center;
+    font-size: 20px;
+}
+
+
+
 /* BNIゲームで、SILVIS6期は「ビンゴ」による特別加点を設けており、その説明を.chapterinfoに書いていた。その装飾用 */
 .bingo{
     border-collapse:collapse;
