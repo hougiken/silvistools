@@ -4,7 +4,12 @@
 .chapterinfo {
     --silvis-light-green: rgb(140,255,101);
     --silvis-green: green;
-    --silvis-gradient: linear-gradient(var(--silvis-light-green),var(--silvis-green))
+    --silvis-gradient: linear-gradient(var(--silvis-light-green),var(--silvis-green));
+    /* BNI Brandingマニュアルより */
+    --bni-red: #cf2030;
+    --bni-gray: #c8c8c8;
+    --bni-darkgray: #64666a;
+    --bni-lightgray: #f2f2f2;
 }
 
 .silvis_title {
@@ -14,7 +19,7 @@
     border-radius:30% .1em;
     width:100%;
     color:rgba(255,255,255,0.96);
-    font-family:serif;
+    font-family: "Meiryo UI" serif;
     font-size:xx-large;
     font-weight:bold;
     text-align:center;
@@ -62,6 +67,38 @@
     overflow: clip;
     text-align:center;
     font-size: 20px;
+}
+
+/* メインプレゼンテーション紹介カルーセル */
+.carousel_MainPresentation {
+    width: 100%;
+    background-color: 
+}
+.carousel_MainPresentation > div:first-child {
+    background-color: var(--bni-red);
+    color: white;
+    font: "Meiryo_UI", "HiraMaruProN-W4" , sans-serif;
+}
+.carousel_MainPresentation > div:nth-child(2) {
+    font-size: 40px;
+    font-weight: bold;
+}
+.carousel_MainPresentation > div:nth-child(2)::first-letter {
+    color: var(--bni-red);
+}
+
+.car_video {
+    background-color: black;
+    color: white;
+}
+.car_video > div {
+    height: 100%;
+    line-height: 150px;
+    border: dotted white;
+    border-width: 0 17px;
+    font-size: 30px;
+    vertical-align: middle;
+    margin: 2px 10px;
 }
 
 
