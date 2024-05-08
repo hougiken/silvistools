@@ -172,10 +172,18 @@
 
 
 <div id="carousel1" class="silvis_carousel" >
-	<div style="font-size: 30px;">BOD 7/3,17 まで<br/>あと<script type="text/javascript">document.write( Math.ceil(((new Date(2024,6,3))-(new Date()))/(24*60*60*1000)));</script>日</div>
-	<div id="car_video" url="https://bnionline.zoom.us/rec/share/f9NEC-tEpo_iX2WEGItB0q1GP4KIXFdarT1tvjscSB9QHRUFo0K1ufSmOaFY-fM6.s7Jbuk4uabK-TnRS" pass="$3T.4y1U" class="car_video"><div>最新定例会動画 ▶︎</div></div>
+	<div class="AKIRA">
+		<script type="text/javascript">
+			var days = Math.ceil(((new Date(2024,6,3))-(new Date()))/(24*60*60*1000));
+			var txt="BOD7/3①開催迄あと"+days.toString()+"日";
+			for(var i=0;i<txt.length;i++){
+				document.write($("<span>",{text:txt.charAt(i)})[0].outerHTML);
+			}
+		</script>
+	</div>
+	<div id="car_video" url="https://bnionline.zoom.us/rec/share/5JqJ549SNhVQNMkYE-ynM67o0Dd5Jhq1JY8GM-1ybe_xq8m9F16yG4w09VHvgCv9.Cn-ORkMCylcFbvzt" pass="1CLw@u=5" class="car_video"><div>最新定例会<wbr/>動画<wbr/>▶︎<wbr/>click here!</div></div>
 	<div>対面イベント 5/17(金)</div>
-	<div>リージョンフォーラム 5/8</div>
+	<div>リージョンフォーラム 6/5</div>
 </div>
 <span class="silvis_title">Challenge 120%</span><br />
 <br />

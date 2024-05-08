@@ -68,6 +68,12 @@
     text-align:center;
     font-size: 20px;
 }
+.slick-arrow {
+    background-color: lightgray;
+}
+.slick-arrow:hover {
+    background-color: black;
+}
 
 /* メインプレゼンテーション紹介カルーセル */
 .carousel_MainPresentation {
@@ -87,18 +93,35 @@
     color: var(--bni-red);
 }
 
+/* 定例会動画リンク用カルーセル */
 .car_video {
     background-color: black;
     color: white;
+    cursor:pointer;
 }
 .car_video > div {
     height: 100%;
-    line-height: 150px;
+    padding-top: 30px;
     border: dotted white;
     border-width: 0 17px;
     font-size: 30px;
     vertical-align: middle;
     margin: 2px 10px;
+}
+
+/* aaまであとnn日 */
+.AKIRA {
+    font-size:30px;
+    font-weight:bold;
+    background-color:chocolate;
+    background-image: linear-gradient(chocolate, crimson);
+    padding-top: 15px; 
+}
+.AKIRA > span {
+    display:inline-block;
+    background-color: cornsilk;
+    border: solid black thin;
+    width:9.8%;
 }
 
 
