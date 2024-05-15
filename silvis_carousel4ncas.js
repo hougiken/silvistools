@@ -11,9 +11,17 @@
 // イニシャライズ
 $(document).ready(function(){
     // メインプレゼンテーション告知を作る。
-	$("#carousel1").prepend(car_mp("三輪 智士","フラワーバルーン","5/15"));
-	$("#carousel1").append(car_mp("島田 泰弘","行政書士(農地,開発)","6/5"));
-	$("#carousel1").append(car_mp("松本 一矢","3Dアクセ","5/22"));
+    var mps = [
+        car_mp("松本 一矢","3Dアクセ","5/22"),
+        car_mp("島田 泰弘","行政書士(農地,開発)","6/5"),
+        car_mp("藤生 志津","ミネラルウォーター","6/12"),
+    ];
+    // 直近の人は先頭に
+	$("#carousel1").prepend(mps[0]);
+    // 翌々週以降の人は後ろから
+    for(var i=0; i<mps.length; i++){
+        $("#carousel1").append(mps[mps.length-i-1]);
+    }
 
     // 定例会動画カルーセルのURL等を設定
     var car_video = document.getElementById("car_video");
