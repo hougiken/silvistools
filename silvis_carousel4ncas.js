@@ -11,11 +11,20 @@
 // イニシャライズ
 $(document).ready(function(){
     // メインプレゼンテーション告知を作る。
+    /*
     var mps = [
-        car_mp("松本 一矢","3Dアクセ","5/22"),
         car_mp("島田 泰弘","行政書士(農地,開発)","6/5"),
         car_mp("藤生 志津","ミネラルウォーター","6/12"),
+        car_mp("加賀谷 勝","PCトラブル","6/19")
     ];
+    */
+    // <div id="carousel1" mps="[[氏名,カテゴリー,日付文字列]+]">の形で作る。
+    var mp_values = eval($("#carousel1").attr("mps")); //JSON.parse()にするか悩ましい。JSON.parseだとsingle quote (')不可なので、mps='[["山田太郎","捕手","4/1"]]'は良いけどmps="[['山田太郎','捕手','4/1']]"は不可
+    var mps = [];
+    for(var i=0; i<mp_values.length; i++){
+        var v = mp_values[i];
+        mps.push(car_mp(v[0],v[1],v[2]));
+    }
     // 直近の人は先頭に
 	$("#carousel1").prepend(mps[0]);
     // 翌々週以降の人は後ろから
