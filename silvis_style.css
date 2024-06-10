@@ -12,6 +12,10 @@
     --bni-lightgray: #f2f2f2;
 }
 
+.chapterinfo em {
+    color: var(--silvis-green);
+}
+
 .silvis_title {
     display:block;
     background-color:rgb(140,255,101);
