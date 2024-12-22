@@ -116,6 +116,20 @@
     font-weight: bold;
 }
 
+/* GBM グローバルビジネスミーティング用 */
+.silvis_carousel .GBM {
+    background: rgb(12,42,74);
+    background: radial-gradient(circle at center 180%, rgba(12,42,74,1) 0%, rgba(9,9,121,1) 32%, rgba(184,249,255,1) 68%, rgba(9,9,121,1) 70%, rgba(0,0,0,1) 100%);
+    color: white;
+    text-shadow: 0 0 1px black;
+}
+
+.silvis_carousel .GBM > div:first-child {
+    font-size: xx-small;
+    letter-spacing: 100%;
+}
+
+
 /* 定例会動画リンク用カルーセル */
 .car_video {
     background-color: black;
