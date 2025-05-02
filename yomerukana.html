@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yomerukana</title>
+    <style>
+        body {
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+        }
+        #input {
+            color: transparent
+        }
+
+        #quiz {
+            --size : 50vw;
+            margin: auto;
+            border: solid 1px #000;
+            width: var(--size);
+            height: var(--size);
+            font-size: var(--size);
+            /* text-align: center; */
+            letter-spacing: -1em;
+            padding: 0;
+            line-height: var(--size);
+            font-family: "クレー" "klee" serif;
+            text-align: left;
+        }
+    </style>
+    <script type="text/javascript">
+        function updateSize(value) {
+            console.log(value);
+            const quizElement = document.getElementById('quiz');
+            quizElement.style.setProperty('letter-spacing', -1+(value/100)+'em');
+        }
+
+        function updateText() {
+            const input = document.getElementById('input').value;
+            const quizElement = document.getElementById('quiz');
+            quizElement.textContent = input;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputField = document.getElementById('input');
+            inputField.addEventListener('input', updateText);
+
+            const sizeSlider = document.getElementById('size');
+            // sizeSlider.addEventListener('input', updateSize(sizeSlider.value));
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Enter text here" onchange="updateText()">
+    <div id="quiz">わさび</div>
+    <input type="range" id="size" min="0" max="50" value="0" step="1" oninput="updateSize(this.value)">
+</body>
+</html>
