@@ -42,7 +42,7 @@ $(document).ready(function(){
     });
 
     // <div linkto="example.png"></div>があったときに、<div><a href="https://cdn.jsdelivr.net/gh/hougiken/silvistools@master/example.png" target="_blank"><img src="https://cdn.jsdelivr.net/gh/hougiken/silvistools@master/example.png"></a></div>に変換する。
-    $(".silvis_carousel").each(function(){
+    $("div[linkto]").each(function(){
         var linkto = $(this).attr("linkto");
         if( linkto ){
             $(this).html("<a href='https://cdn.jsdelivr.net/gh/hougiken/silvistools@master/"+linkto+"' target='_blank'><img src='https://cdn.jsdelivr.net/gh/hougiken/silvistools@master/"+linkto+"'></a>");
