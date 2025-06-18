@@ -41,6 +41,7 @@ $(document).ready(function(){
         }
     });
 
+    // 画像カルーセル：画像ファイルはGitHubのCDNから取得する。
     // <div linkto="example.png"></div>があったときに、<div><a href="https://cdn.jsdelivr.net/gh/hougiken/silvistools@master/example.png" target="_blank"><img src="https://cdn.jsdelivr.net/gh/hougiken/silvistools@master/example.png"></a></div>に変換する。
     $("div[linkto]").each(function(){
         var linkto = $(this).attr("linkto");
