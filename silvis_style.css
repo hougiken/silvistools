@@ -21,12 +21,17 @@
 }
 
 .silvis_theme {
-    background-image:
+    /* background-image:
         linear-gradient(160deg, rgba(0,120,220,0.1) 60%, white 80%),
         radial-gradient(circle at 60% 4em, white, rgba(240, 255, 0, 0.5) 30%, transparent),
         conic-gradient(from 20deg at 60% 4em, rgb(210, 215, 228), rgb(248, 127, 102), rgb(70, 122, 66), rgb(169, 215, 219))
         ;
-    border-radius:30% 0 3em 2em;
+    */
+    border-radius: 10px;
+    background-color: black;
+    background-image:
+        radial-gradient(circle at 70% 70%, var(--silvis-green) 0%, rgba(56,72,161,1) 70%, rgba(22,22,25,1) 100%)
+    ;
     color:white;
     text-align: center;
     text-shadow: var(--silvis-green) 0 1px 3px;
@@ -34,16 +39,16 @@
 
 .silvis_title {
     display:block;
-    background-color:rgb(140,255,101);
-    background-image:var(--silvis-gradient);
-    border-radius:30% .1em;
+    /* background-color:rgb(140,255,101); */
+    /* background-image:var(--silvis-gradient); */
+    /* border-radius:30% .1em; */
     width:100%;
     color:rgba(255,255,255,0.96);
-    font-family: "Meiryo UI" serif;
+    font-family: "Train One" serif; /* Google Fonts */
     font-size:xx-large;
     font-weight:bold;
     text-align:center;
-    text-shadow: 0 0 15px var(--silvis-light-green);
+    text-shadow: 0 0 3px rgba(255,255,255,0.3);
     padding:0 15px;letter-spacing:0.3em;
 }
 
@@ -81,7 +86,7 @@
     display:inline-block;
     padding:0 .5em;
     color:white;
-    background-color:rgb(140,255,101)
+    background-color:rgb(140,255,101);
     background-image:var(--silvis-gradient);
     border-radius:1em;
     font-weight:bold;
