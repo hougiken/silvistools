@@ -1,5 +1,7 @@
 /* silvis_style.css for use in NCAS Chapter Info */
 
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One:wght@400&display=swap&text=%E6%8E%B4%E3%81%BF%E5%8F%96%E3%82%8C%21%E6%88%90%E5%8A%9F%E4%BD%93%E9%A8%93');
+
 /* SILVISの色などの定義 */
 .chapterinfo {
     --silvis-light-green: rgb(140,255,101);
@@ -28,28 +30,40 @@
         ;
     */
     border-radius: 10px;
-    background-color: black;
+    background-color: rgb(0,30,0);
+    background-image: 
+        conic-gradient(
+            at 50% 35%,
+            rgb(184,236,234),
+            rgb(65,119,105),
+            rgb(45,79,42),
+            rgb(233,209,64),
+            rgb(45,79,42),
+            rgb(65,119,105),
+            rgb(184,236,234)
+        )
+    ;
+    /*
     background-image:
         radial-gradient(circle at 70% 70%, var(--silvis-green) 0%, rgba(56,72,161,1) 70%, rgba(22,22,25,1) 100%)
     ;
+    */
     color:white;
     text-align: center;
-    text-shadow: var(--silvis-green) 0 1px 3px;
+    /* text-shadow: var(--silvis-green) 0 1px 3px; */
 }
 
 .silvis_title {
     display:block;
-    /* background-color:rgb(140,255,101); */
-    /* background-image:var(--silvis-gradient); */
-    /* border-radius:30% .1em; */
     width:100%;
-    color:rgba(255,255,255,0.96);
+    color:rgba(255,255,255,0.8);
     font-family: "Train One" serif; /* Google Fonts */
     font-size:xx-large;
-    font-weight:bold;
+    font-weight:400 bold;
+    font-style:italic;
     text-align:center;
-    text-shadow: 0 0 3px rgba(255,255,255,0.3);
-    padding:0 15px;letter-spacing:0.3em;
+    padding:0 15px;
+    letter-spacing:0em;
 }
 
 .silvis_slogan {
@@ -198,32 +212,6 @@
     width:9.8%;
 }
 
-/* グロビジ相談室用 */
-.GBC {
-    background-color: rgb(21,41,81);
-    background-image: url("data:image/png;base64,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");
-    
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    background-size: auto 90%; 
-
-
-    color: white;
-    text-shadow: 0 0 1px black;
-    text-align: left;
-    padding-left: 1em;
-    padding-top: 1em;
-    padding-right: 20px;
-    line-height: 1.2em;
-}
-.GBC a {
-    color: white;
-}
-.GBC::first-line {
-    text-shadow: 0 0 7px rgba(255,255,255,0.8);
-    font-weight: bold;
-    line-height: 1.6em;
-}
 
 /* BNIゲームで、SILVIS6期は「ビンゴ」による特別加点を設けており、その説明を.chapterinfoに書いていた。その装飾用 */
 .bingo{
